@@ -1,0 +1,6 @@
+{
+  "name": "@arcadecity/neon-desktop",
+  "version": "0.0.1",
+  "description": "Neon desktop app",
+  "private": true
+}
