@@ -106,7 +106,7 @@ module.exports.init = async function({
   })
 
   ipcMain.on('lndRequest', (event, { method, body }) => {
-    console.log('ipc event: lndRequest')
+    console.log('ipc event: lndRequest with method: ' + method)
     const deadline = new Date(new Date().getTime() + GRPC_TIMEOUT)
     const handleResponse = (err, response) => {
       event.sender.send(`lndResponse_${method}`, { err, response })
@@ -116,7 +116,7 @@ module.exports.init = async function({
 
   const streams = {}
   ipcMain.on('lndStreamRequest', (event, { method, body }) => {
-    console.log('ipc event: lndStreamRequest')
+    console.log('ipc event: lndStreamRequest with method: ', method)
     let stream
     stream = lnd[method](body)
     const send = res => event.sender.send(`lndStreamEvent_${method}`, res)

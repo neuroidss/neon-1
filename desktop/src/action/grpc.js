@@ -98,9 +98,7 @@ class GrpcAction {
         data = JSON.parse(data.toString('utf8'));
         self._ipc.send('lndStreamWrite', null, { method, data });
       },
-      read() {
-        console.log('read nothing')
-      },
+      read() {},
     });
     this._ipc.listen(`lndStreamEvent_${method}`, (e, arg) => {
       stream.emit(arg.event, arg.data || arg.err);
