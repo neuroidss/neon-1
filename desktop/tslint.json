@@ -12,6 +12,8 @@
   },
   "jsRules": {
     "object-literal-sort-keys": false,
-    "variable-name": false
+    "variable-name": false,
+    "no-console": false,
+    "no-unused-expression": false
   }
 }

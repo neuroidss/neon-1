@@ -60,7 +60,7 @@ module.exports.startLndProcess = async function({
     '--bitcoin.active',
     '--debuglevel=info',
     `--lnddir=${lndSettingsDir}`,
-    `--routing.assumechanvalid`,
+    // `--routing.assumechanvalid`,
     lndPort ? `--rpclisten=localhost:${lndPort}` : '',
     lndPeerPort ? `--listen=localhost:${lndPeerPort}` : '',
     lndRestPort ? `--restlisten=localhost:${lndRestPort}` : '',
@@ -89,6 +89,8 @@ module.exports.startLndProcess = async function({
     ])
   }
   args = args.concat(lndArgs)
+  console.log('startLndProcess args:', args)
+  console.log('----------------')
   return startChildProcess(processName, args, logger)
 }
 

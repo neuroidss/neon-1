@@ -29,6 +29,7 @@ async function getCredentials(lndSettingsDir) {
   const certPath = path.join(lndSettingsDir, 'tls.cert')
   await waitForCertPath(certPath)
   const lndCert = fs.readFileSync(certPath)
+  console.log('lnd cert path: ' + certPath)
   return grpc.credentials.createSsl(lndCert)
 }
 
@@ -57,10 +58,10 @@ module.exports.init = async function({
   let unlocker
   let lnd
 
-  // tslint:disable-next-line
   console.log('initing grpc client...')
 
   ipcMain.on('unlockInit', async event => {
+    console.log('ipc event: unlockInit')
     credentials = await getCredentials(lndSettingsDir)
     protoPath = path.join(__dirname, '..', 'assets', 'rpc.proto')
     lnrpc = grpc.load(protoPath).lnrpc
@@ -71,11 +72,13 @@ module.exports.init = async function({
   })
 
   ipcMain.on('unlockClose', event => {
+    console.log('ipc event: unlockClose')
     unlocker.close()
     event.sender.send('unlockClosed', {})
   })
 
   ipcMain.on('lndInit', event => {
+    console.log('ipc event: lndInit')
     const macaroonCreds = getMacaroonCreds(lndSettingsDir, network)
     credentials = grpc.credentials.combineChannelCredentials(
       credentials,
@@ -88,11 +91,13 @@ module.exports.init = async function({
   })
 
   ipcMain.on('lndClose', event => {
+    console.log('ipc event: lndClose')
     lnd.close()
     event.sender.send('lndClosed', {})
   })
 
   ipcMain.on('unlockRequest', (event, { method, body }) => {
+    console.log('ipc event: unlockRequest')
     const deadline = new Date(new Date().getTime() + GRPC_TIMEOUT)
     const handleResponse = (err, response) => {
       event.sender.send(`unlockResponse_${method}`, { err, response })
@@ -101,6 +106,7 @@ module.exports.init = async function({
   })
 
   ipcMain.on('lndRequest', (event, { method, body }) => {
+    console.log('ipc event: lndRequest')
     const deadline = new Date(new Date().getTime() + GRPC_TIMEOUT)
     const handleResponse = (err, response) => {
       event.sender.send(`lndResponse_${method}`, { err, response })
@@ -110,6 +116,7 @@ module.exports.init = async function({
 
   const streams = {}
   ipcMain.on('lndStreamRequest', (event, { method, body }) => {
+    console.log('ipc event: lndStreamRequest')
     let stream
     stream = lnd[method](body)
     const send = res => event.sender.send(`lndStreamEvent_${method}`, res)
@@ -121,6 +128,7 @@ module.exports.init = async function({
   })
 
   ipcMain.on('lndStreamWrite', (event, { method, data }) => {
+    console.log('ipc event: lndStreamWrite')
     const stream = streams[method]
     if (!stream) { return }
     stream.write(data)
