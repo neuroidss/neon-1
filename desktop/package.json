@@ -11,13 +11,14 @@
     "start": "yarn lint && react-scripts-ts start",
     "build": "yarn lint && react-scripts-ts build",
     "test": "yarn lint && react-scripts-ts test --env=jsdom",
-    "lint": "tslint --project . --fix",
+    "lint": "tslint --project . --fix --format verbose",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "electron-pack": "build --c.extraMetadata.main=build/electron.js",
     "preelectron-pack": "yarn build"
   },
   "dependencies": {
     "electron-is-dev": "^0.3.0",
+    "grpc": "^1.14.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-scripts-ts": "2.17.0"
@@ -27,11 +28,14 @@
     "@types/node": "^10.9.4",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
+    "babel-core": "^6.23.0",
+    "babel-runtime": "^6.23.0",
     "concurrently": "^4.0.1",
     "electron": "^2.0.8",
     "electron-builder": "^20.28.4",
+    "electron-rebuild": "^1.8.2",
     "tslint": "^5.11.0",
-    "typescript": "^3.0.3",
+    "typescript": "2.9.2",
     "wait-on": "^3.0.1"
   },
   "build": {

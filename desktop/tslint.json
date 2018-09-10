@@ -9,5 +9,9 @@
   },
   "rules": {
     "semicolon": [true, "never"]
+  },
+  "jsRules": {
+    "object-literal-sort-keys": false,
+    "variable-name": false
   }
 }
