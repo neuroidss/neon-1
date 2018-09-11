@@ -6,7 +6,7 @@
  */
 
 import * as log from './log';
-import { NOTIFICATION_DELAY } from '../config';
+import { NOTIFICATION_DELAY } from '../lapp-config';
 
 class NotificationAction {
   constructor(store, nav) {

@@ -5,7 +5,7 @@
 
 import { observe, when } from 'mobx';
 import { toBuffer, parseSat, checkHttpStatus, nap, poll } from '../helper';
-import { MIN_PASSWORD_LENGTH, NOTIFICATION_DELAY, RATE_DELAY } from '../config';
+import { MIN_PASSWORD_LENGTH, NOTIFICATION_DELAY, RATE_DELAY } from '../lapp-config';
 import * as log from './log';
 
 class WalletAction {

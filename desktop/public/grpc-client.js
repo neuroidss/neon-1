@@ -18,6 +18,7 @@ async function waitForCertPath(certPath) {
   let intervalId
   return new Promise(resolve => {
     intervalId = setInterval(() => {
+      // console.log('where are we')
       if (!fs.existsSync(certPath)) { return }
       clearInterval(intervalId)
       resolve()
@@ -29,7 +30,6 @@ async function getCredentials(lndSettingsDir) {
   const certPath = path.join(lndSettingsDir, 'tls.cert')
   await waitForCertPath(certPath)
   const lndCert = fs.readFileSync(certPath)
-  console.log('lnd cert path: ' + certPath)
   return grpc.credentials.createSsl(lndCert)
 }
 
@@ -58,8 +58,6 @@ module.exports.init = async function({
   let unlocker
   let lnd
 
-  console.log('initing grpc client...')
-
   ipcMain.on('unlockInit', async event => {
     console.log('ipc event: unlockInit')
     credentials = await getCredentials(lndSettingsDir)
@@ -67,6 +65,7 @@ module.exports.init = async function({
     lnrpc = grpc.load(protoPath).lnrpc
     unlocker = new lnrpc.WalletUnlocker(`localhost:${lndPort}`, credentials)
     grpc.waitForClientReady(unlocker, Infinity, err => {
+      console.log('unlockReady')
       event.sender.send('unlockReady', { err })
     })
   })
@@ -86,6 +85,7 @@ module.exports.init = async function({
     )
     lnd = new lnrpc.Lightning(`localhost:${lndPort}`, credentials)
     grpc.waitForClientReady(lnd, Infinity, err => {
+      console.tron.log('** Sending lndReady... **')
       event.sender.send('lndReady', { err })
     })
   })

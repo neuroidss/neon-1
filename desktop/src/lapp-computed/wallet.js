@@ -4,7 +4,7 @@
 
 import { computed, extendObservable } from 'mobx';
 import { toAmountLabel } from '../helper';
-import { UNITS, FIATS } from '../config';
+import { UNITS, FIATS } from '../lapp-config';
 
 const ComputedWallet = store => {
   extendObservable(store, {

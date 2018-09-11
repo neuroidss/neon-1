@@ -4,7 +4,7 @@
 
 import { computed, extendObservable } from 'mobx';
 import { formatNumber } from '../helper';
-import { UNITS, FIATS } from '../config';
+import { UNITS, FIATS } from '../lapp-config';
 
 const ComputedSetting = store => {
   extendObservable(store, {
@@ -13,9 +13,9 @@ const ComputedSetting = store => {
     satUnitLabel: computed(() => getUnitLabel('sat')),
     bitUnitLabel: computed(() => getUnitLabel('bit')),
     btcUnitLabel: computed(() => getUnitLabel('btc')),
-    usdFiatLabel: computed(() => FIATS['usd'].displayLong),
-    eurFiatLabel: computed(() => FIATS['eur'].displayLong),
-    gbpFiatLabel: computed(() => FIATS['gbp'].displayLong),
+    usdFiatLabel: computed(() => FIATS.usd.displayLong),
+    eurFiatLabel: computed(() => FIATS.eur.displayLong),
+    gbpFiatLabel: computed(() => FIATS.gbp.displayLong),
   });
 };
 

@@ -5,16 +5,16 @@
  */
 
 import { extendObservable } from 'mobx';
-import ComputedLoaderMsg from './computed/loader-msg';
-import ComputedWallet from './computed/wallet';
-import ComputedTransaction from './computed/transaction';
-import ComputedChannel from './computed/channel';
-import ComputedInvoice from './computed/invoice';
-import ComputedPayment from './computed/payment';
-import ComputedNotification from './computed/notification';
-import ComputedSetting from './computed/setting';
-import ComputedSeed from './computed/seed';
-import { DEFAULT_ROUTE, DEFAULT_UNIT, DEFAULT_FIAT } from './config';
+import ComputedLoaderMsg from './lapp-computed/loader-msg';
+import ComputedWallet from './lapp-computed/wallet';
+import ComputedTransaction from './lapp-computed/transaction';
+import ComputedChannel from './lapp-computed/channel';
+import ComputedInvoice from './lapp-computed/invoice';
+import ComputedPayment from './lapp-computed/payment';
+import ComputedNotification from './lapp-computed/notification';
+import ComputedSetting from './lapp-computed/setting';
+import ComputedSeed from './lapp-computed/seed';
+import { DEFAULT_ROUTE, DEFAULT_UNIT, DEFAULT_FIAT } from './lapp-config';
 
 export class Store {
   constructor() {

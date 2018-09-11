@@ -3,7 +3,7 @@
  * call the corresponding GRPC apis for payment management.
  */
 
-import { PREFIX_URI } from '../config';
+import { PREFIX_URI } from '../lapp-config';
 import {
   toSatoshis,
   toAmount,

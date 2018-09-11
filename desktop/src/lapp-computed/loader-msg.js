@@ -5,11 +5,18 @@
 import { computed, extendObservable } from 'mobx';
 
 const ComputedLoaderMsg = store => {
+  const { percentSynced: percent } = store;
   extendObservable(store, {
-    loadingMsg: computed(() => {
-      const { percentSynced: percent } = store;
-      return getLoadingMsg(percent);
-    }),
+    loadingMsg: percent
+
+    /*
+     Error: [mobx] Passing a 'computed' as initial property value is no longer supported by
+     extendObservable. Use a getter or decorator instead
+     */
+    // loadingMsg: computed(() => {
+    //   const { percentSynced: percent } = store;
+    //   return getLoadingMsg(percent);
+    // }),
   });
 };
 

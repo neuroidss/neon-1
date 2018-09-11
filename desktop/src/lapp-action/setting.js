@@ -3,7 +3,7 @@
  * them to disk when they are updated by the user.
  */
 
-import { UNITS, FIATS } from '../config';
+import { UNITS, FIATS } from '../lapp-config';
 import localeCurrency from 'locale-currency';
 import * as log from './log';
 

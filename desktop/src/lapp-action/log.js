@@ -5,7 +5,7 @@
  * variables.
  */
 
-import { MAX_LOG_LENGTH } from '../config';
+import { MAX_LOG_LENGTH } from '../lapp-config';
 
 let _store;
 let _ipc;

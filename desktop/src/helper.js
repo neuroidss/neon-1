@@ -2,7 +2,7 @@
  * @fileOverview helper and utility functions that can be reused go here.
  */
 
-import { UNITS, LND_INIT_DELAY, RETRY_DELAY } from './config';
+import { UNITS, LND_INIT_DELAY, RETRY_DELAY } from './lapp-config';
 
 /**
  * Format a number value in locale format with either . or ,
@@ -265,7 +265,7 @@ export const nap = (ms = LND_INIT_DELAY) => {
 export const poll = async (api, interval = RETRY_DELAY, retries = Infinity) => {
   while (retries--) {
     const response = await api();
-    if (response) return response;
+    if (response) { return response; }
     await nap(interval);
   }
   throw new Error('Maximum retries for polling reached');
@@ -285,7 +285,7 @@ export const retry = async (api, interval = 100, retries = 1000) => {
     try {
       return await api();
     } catch (err) {
-      if (!retries) throw err;
+      if (!retries) { throw err; }
     }
     await nap(interval);
   }

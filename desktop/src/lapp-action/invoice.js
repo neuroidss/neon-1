@@ -3,7 +3,7 @@
  * a.k.a invoice that can be sent to another user.
  */
 
-import { PREFIX_URI } from '../config';
+import { PREFIX_URI } from '../lapp-config';
 import { toSatoshis } from '../helper';
 
 class InvoiceAction {

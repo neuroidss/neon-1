@@ -3,6 +3,7 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const url = require('url')
 const isDev = require('electron-is-dev')
+const log = require('electron-log')
 
 const { startLndProcess, startBtcdProcess } = require('./lnd-child-process')
 const grpcClient = require('./grpc-client')
@@ -11,9 +12,11 @@ const {
   NETWORK,
   LND_PORT,
   LND_PEER_PORT,
+  LND_PROFILING_PORT,
+  LND_REST_PORT,
   LND_INIT_DELAY,
   BTCD_MINING_ADDRESS,
-} = require('../src/config')
+} = require('../src/lapp-config')
 
 const userDataPath = app.getPath('userData')
 const lndSettingsDir = path.join(isDev ? 'data' : userDataPath, 'lnd')
@@ -25,6 +28,46 @@ const lndArgs = process.argv.filter(a =>
 let mainWindow
 let lndProcess
 let btcdProcess
+
+/**
+ * Log config
+ */
+log.transports.console.level = 'info'
+log.transports.file.level = 'info'
+ipcMain.on('log', (event, arg) => log.info(...arg))
+ipcMain.on('log-error', (event, arg) => log.error(...arg))
+ipcMain.on('locale-get', event =>
+  event.sender.send('locale', { response: app.getLocale() })
+)
+
+let logQueue = []
+let logsReady = false
+
+const sendLog = log => {
+  if (mainWindow && logsReady) {
+    mainWindow.webContents.send('logs', log)
+  } else {
+    logQueue.push(log)
+  }
+}
+
+const Logger = {
+  info: msg => {
+    log.info(msg)
+    sendLog(msg)
+  },
+  error: msg => {
+    log.error(msg)
+    sendLog(`ERROR: ${msg}`)
+  }
+}
+
+ipcMain.on('logs-ready', () => {
+  logQueue.map(line => mainWindow && mainWindow.webContents.send('logs', line))
+  logQueue = []
+  logsReady = true
+})
+
 
 function createWindow() {
   const options = {
@@ -49,7 +92,34 @@ function createWindow() {
   })
 }
 
-app.on('ready', createWindow)
+const startLnd = async () => {
+  try {
+    btcdProcess = await startBtcdProcess({
+      isDev,
+      logger: Logger,
+      btcdSettingsDir,
+      miningAddress: BTCD_MINING_ADDRESS
+    })
+    lndProcess = await startLndProcess({
+      isDev,
+      lndSettingsDir,
+      lndPort: LND_PORT,
+      lndPeerPort: LND_PEER_PORT,
+      lndRestPort: LND_REST_PORT,
+      lndProfilingPort: LND_PROFILING_PORT,
+      logger: Logger,
+      lndArgs
+    })
+  } catch (err) {
+    Logger.error(`Caught Error When Starting lnd: ${err}`)
+  }
+}
+
+
+app.on('ready', () => {
+  createWindow()
+  startLnd()
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
