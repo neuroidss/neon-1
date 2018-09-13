@@ -6,6 +6,7 @@ Neon is a multi-blockchain wallet for interacting with the Arcade ecosystem. It 
 
 ### Planned features
 
+* Full-featured Bitcoin & Lightning wallet
 * Buy/sell, trade, or stake Arcade Tokens (ARCD)
 * Visual data browser for the entire Arcade network: view channels, transactions, and guild policies with their resulting revenue flows
 * Run a Bitcoin, Lightning, and/or Ethereum node, including a toolkit for guild treasuries to earn fees on Lightning transactions [desktop only]
