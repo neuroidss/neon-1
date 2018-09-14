@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-Neon will integrate [optional identity verifications](https://github.com/ArcadeCity/neon/blob/adrs/docs/architecture/0010-integrate-identity-verifications.md).
+Neon will integrate [optional identity verifications](0010-integrate-identity-verifications.md).
 
 [EvidentID](https://www.evidentid.com/) is a third-party verification provider and a logical first partner for an initial implementation of our verification system. They have a straightforward API and have been used previously by Airbnb.
 
