@@ -3,6 +3,7 @@
 Neon is a multi-blockchain wallet and tool for interacting with the Arcade ecosystem. It will include desktop, web and mobile versions.
 
 * [Project board](https://github.com/ArcadeCity/neon/projects/1)
+* [Architecture decision log](https://github.com/ArcadeCity/neon/tree/master/docs)
 
 ### Planned features
 
