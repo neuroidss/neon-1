@@ -4,13 +4,6 @@ Neon is a multi-blockchain wallet and tool for interacting with the Arcade ecosy
 
 * [Project board](https://github.com/ArcadeCity/neon/projects/1)
 
-### Planned features
-
-* Full-featured Bitcoin & Lightning wallet
-* Buy/sell, trade, or stake Arcade Tokens (ARCD)
-* Visual data browser for the entire Arcade network: view channels, transactions, and guild policies with their resulting revenue flows
-* Run a Bitcoin, Lightning, and/or Ethereum node, including a toolkit for guild treasuries to earn fees on Lightning transactions [desktop only]
-
 ### Architecture decision log
 
 1. [Record architecture decisions](architecture/0001-record-architecture-decisions.md)
@@ -26,3 +19,10 @@ Neon is a multi-blockchain wallet and tool for interacting with the Arcade ecosy
 11. [Integrate EvidentID](architecture/0011-integrate-evidentid.md)
 12. [Integrate Blockstack](architecture/0012-integrate-blockstack.md)
 13. [Integrate Matrix chat](architecture/0013-integrate-matrix-chat.md)
+
+### Planned features
+
+* Full-featured Bitcoin & Lightning wallet
+* Buy/sell, trade, or stake Arcade Tokens (ARCD)
+* Visual data browser for the entire Arcade network: view channels, transactions, and guild policies with their resulting revenue flows
+* Run a Bitcoin, Lightning, and/or Ethereum node, including a toolkit for guild treasuries to earn fees on Lightning transactions [desktop only]
