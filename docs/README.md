@@ -1,6 +1,6 @@
 ## Neon Documentation
 
-Neon is a multi-blockchain wallet for interacting with the Arcade ecosystem. It will include desktop, web and mobile versions.
+Neon is a multi-blockchain wallet and tool for interacting with the Arcade ecosystem. It will include desktop, web and mobile versions.
 
 * [Project board](https://github.com/ArcadeCity/neon/projects/1)
 
@@ -25,3 +25,4 @@ Neon is a multi-blockchain wallet for interacting with the Arcade ecosystem. It 
 10. [Integrate identity verifications](architecture/0010-integrate-identity-verifications.md)
 11. [Integrate EvidentID](architecture/0011-integrate-evidentid.md)
 12. [Integrate Blockstack](architecture/0012-integrate-blockstack.md)
+13. [Integrate Matrix chat](architecture/0013-integrate-matrix-chat.md)
