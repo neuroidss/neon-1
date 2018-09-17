@@ -4,6 +4,7 @@ const path = require('path')
 const url = require('url')
 const isDev = require('electron-is-dev')
 const log = require('electron-log')
+const cp = require('child_process')
 
 const { startLndProcess, startBtcdProcess } = require('./lnd-child-process')
 const grpcClient = require('./grpc-client')
@@ -25,9 +26,25 @@ const lndArgs = process.argv.filter(a =>
   /(^--bitcoin)|(^--btcd)|(^--neutrino)/.test(a)
 )
 
+// Start process to serve Blockstack manifest file
+const server = cp.fork(__dirname + '/server.js')
+
+server.on('message', (m) => {
+  console.log('message: ' +  m)
+    // if (m === 'started') {
+    //     // serverStarted = true;
+    //     // createWindow();
+    //     createWindow()
+    //     startLnd()
+    // }
+})
+
 let mainWindow
 let lndProcess
 let btcdProcess
+
+// Set default protocol client for redirect
+app.setAsDefaultProtocolClient('neon')
 
 /**
  * Log config
@@ -61,6 +78,10 @@ const Logger = {
     sendLog(`ERROR: ${msg}`)
   }
 }
+
+ipcMain.on('signed-in', () => {
+  console.log('SIGNED IN?')
+})
 
 ipcMain.on('logs-ready', () => {
   logQueue.map(line => mainWindow && mainWindow.webContents.send('logs', line))
@@ -116,6 +137,7 @@ const startLnd = async () => {
 }
 
 
+// TODO: Wait for express server to start (though it should start faster than this...)
 app.on('ready', () => {
   createWindow()
   startLnd()
@@ -131,4 +153,11 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+app.on('open-url', function (ev, redirect) {
+  ev.preventDefault()
+  mainWindow.focus()
+  const token = redirect.replace('neon://redirect?authResponse=', '')
+  mainWindow.webContents.send('signed-in', token)
 })

@@ -1,18 +1,14 @@
 import { types } from 'mobx-state-tree'
+import * as actions from './user.actions'
 
 /**
  * Handles UI state
  */
 export const UserStoreModel = types
   .model('UserStore')
-  .props({
-    /** Demo field */
-    demoField: types.optional(types.string, ''),
-  })
   .actions(self => ({
-    setDemoField(value: string) {
-      self.demoField = value
-    }
+    loginBlockstack: async (): Promise<any> =>
+      await actions.loginBlockstack(self)
   }))
 
 /**
