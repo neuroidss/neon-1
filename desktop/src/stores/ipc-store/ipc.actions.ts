@@ -37,7 +37,7 @@ export async function send(self, event, listenTo, payload) {
  * Helper function
  */
 export async function sendIpc(self, event, listenTo, method, body) {
-  console.tron.log('Sending IPC event: ' + event + ', listening to: ' + listenTo)
+  // console.log('Sending IPC event: ' + event + ', listening to: ' + listenTo)
   listenTo = method ? `${listenTo}_${method}` : listenTo
   return self.send(event, listenTo, { method, body })
 }

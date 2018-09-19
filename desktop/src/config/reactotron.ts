@@ -14,7 +14,7 @@ declare global {
 const noop = () => undefined
 
 // in dev, we attach Reactotron, in prod we attach a interface-compatible mock.
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   console.tron = Reactotron // attach reactotron to `console.tron`
 } else {
   // attach a mock so if things sneaky by our __DEV__ guards, we won't crash.
@@ -32,7 +32,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   }
 }
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   Reactotron
     .configure()
     .use(mst())

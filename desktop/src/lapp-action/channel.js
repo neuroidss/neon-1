@@ -249,7 +249,7 @@ class ChannelAction {
       stream.on('data', () => this.update());
       stream.on('end', resolve);
       stream.on('error', reject);
-      stream.on('status', status => log.info(`Opening channel: ${status}`));
+      stream.on('status', status => console.log(`Opening channel: ${status}`));
     });
   }
 
@@ -293,7 +293,7 @@ class ChannelAction {
       });
       stream.on('end', resolve);
       stream.on('error', reject);
-      stream.on('status', status => log.info(`Closing channel: ${status}`));
+      stream.on('status', status => console.log(`Closing channel:`, status));
     });
   }
 

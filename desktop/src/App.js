@@ -6,7 +6,7 @@ import { setupRootStore } from './setup/setup-root-store'
 import { WelcomeScreen } from './components/WelcomeScreen'
 
 class App extends React.Component {
-  constructor (props: any) {
+  constructor (props) {
     super(props)
     this.state = { ready: false }
   }
@@ -26,6 +26,7 @@ class App extends React.Component {
 
     const injectableStores = {
       lndStore: store.lndStore,
+      payLnStore: store.payLnStore,
       uiStore: store.uiStore,
       userStore: store.userStore,
       walletStore: store.walletStore

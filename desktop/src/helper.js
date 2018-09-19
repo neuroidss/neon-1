@@ -50,10 +50,12 @@ export const parseDate = timeStamp => {
  */
 export const parseSat = satoshis => {
   if (typeof satoshis !== 'string' || !/^-*[0-9]+$/.test(satoshis)) {
+    console.log("FOUISDFIOSLUHDFLISUHDFIOHSDIOFUHSIDF")
     throw new Error('Invalid input!');
   }
   satoshis = parseInt(satoshis, 10);
   if (isNaN(satoshis)) {
+    console.log('F*Q&HWF*&QWGHF*&E*F&GSE*FH')
     throw new Error('Invalid input!');
   }
   return satoshis;

@@ -22,7 +22,14 @@ yarn-error.log*
 
 /dist
 /data
-/test/data
+/test
+/tests/data
 /assets/bin
 
 /temp
+
+# cypress
+/screenshotsFolder
+/videosFolder
+
+

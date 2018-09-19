@@ -1,6 +1,6 @@
 import { getRoot } from 'mobx-state-tree'
 // import { toBuffer, parseSat, checkHttpStatus, nap, poll } from '../../helper'
-import { toBuffer } from '../../helper'
+import { parseSat, toBuffer } from '../../helper'
 
 /**
  * Check the wallet password that was chosen by the user has the correct
@@ -81,14 +81,16 @@ export async function generateSeed(self) {
  * @return {Promise<undefined>}
  */
 export async function getBalance(self) {
-  // try {
-  //   const r = await this._grpc.sendCommand('WalletBalance')
-  //   this._store.balanceSatoshis = parseSat(r.total_balance)
-  //   this._store.confirmedBalanceSatoshis = parseSat(r.confirmed_balance)
-  //   this._store.unconfirmedBalanceSatoshis = parseSat(r.unconfirmed_balance)
-  // } catch (err) {
-  //   log.error('Getting wallet balance failed', err)
-  // }
+  try {
+    const root = getRoot(self) as any
+    const { sendCommand } = root.lndStore
+    const r = await sendCommand('WalletBalance')
+    self.setBalanceSatoshis(parseSat(r.total_balance))
+    self.setBalanceConfirmedSatoshis(parseSat(r.confirmed_balance))
+    self.setBalanceUnconfirmedSatoshis(parseSat(r.unconfirmed_balance))
+  } catch (err) {
+    console.log('Getting wallet balance failed', err)
+  }
   return true
 }
 
@@ -99,13 +101,15 @@ export async function getBalance(self) {
  * @return {Promise<undefined>}
  */
 export async function getChannelBalance(self) {
-  // try {
-  //   const r = await this._grpc.sendCommand('ChannelBalance')
-  //   this._store.channelBalanceSatoshis = parseSat(r.balance)
-  //   this._store.pendingBalanceSatoshis = parseSat(r.pending_open_balance)
-  // } catch (err) {
-  //   log.error('Getting channel balance failed', err)
-  // }
+  try {
+    const root = getRoot(self) as any
+    const { sendCommand } = root.lndStore
+    const r = await sendCommand('ChannelBalance')
+    self.setChannelBalanceSatoshis(parseSat(r.balance))
+    self.setChannelPendingBalanceSatoshis(parseSat(r.pending_open_balance))
+  } catch (err) {
+    console.log('Getting channel balance failed', err)
+  }
   return true
 }
 
@@ -139,14 +143,16 @@ export async function getNewAddress(self) {
   // - `p2wkh`: Pay to witness key hash (`WITNESS_PUBKEY_HASH` = 0)
   // - `np2wkh`: Pay to nested witness key hash (`NESTED_PUBKEY_HASH` = 1)
   // - `p2pkh`:  Pay to public key hash (`PUBKEY_HASH` = 2)
-  // try {
-  //   const { address } = await this._grpc.sendCommand('NewAddress', {
-  //     type: 1
-  //   })
-  //   this._store.walletAddress = address
-  // } catch (err) {
-  //   log.error('Getting new wallet address failed', err)
-  // }
+  try {
+    const root = getRoot(self) as any
+    const { sendCommand } = root.lndStore
+    const { address } = await sendCommand('NewAddress', {
+      type: 1
+    })
+    self.setAddress(address)
+  } catch (err) {
+    console.tron.log('Getting new wallet address failed', err)
+  }
   return true
 }
 
@@ -160,7 +166,7 @@ export async function getNewAddress(self) {
 export async function init(self) {
   try {
     await self.generateSeed()
-    await self.initWallet('kek12345', self.seedMnemonic)
+    await self.initWallet('bitconneeeeeect', self.seedMnemonic.toJSON())
     // this._store.firstStart = true
     // this._nav.goLoader()
     // await nap(NOTIFICATION_DELAY)
@@ -208,7 +214,7 @@ export async function initPassword(self) {
 
   // For now skip straight to wallet unlocking
   try {
-    await self.unlockWallet('kek12345')
+    await self.unlockWallet('bitconneeeeeect')
 
     // this._store.firstStart = true
     // this._nav.goLoader()
@@ -257,25 +263,20 @@ export async function initSetPassword(self) {
  * @return {Promise<undefined>}
  */
 export async function initWallet(self, walletPassword, seedMnemonic) {
-  const seedArray = Array.from(seedMnemonic)
   const root = getRoot(self) as any
   const { sendUnlockerCommand } = root.lndStore
-  // const { setUnlocked } = root.walletStore
   try {
     await sendUnlockerCommand('InitWallet', {
       wallet_password: toBuffer(walletPassword),
-      cipher_seed_mnemonic: seedArray,
+      cipher_seed_mnemonic: seedMnemonic,
     })
 
     const { setUnlocked } = root.walletStore
     setUnlocked(true)
 
-    console.tron.log('Wallet initialized and unlocked!')
-
-    // this._store.walletUnlocked = true
-    // this._nav.goSeedSuccess()
   } catch (err) {
-    console.tron.log('Initializing wallet failed', err)
+    console.tron.log('Initializing wallet failed with error:')
+    console.tron.log(err)
     // this._notification.display({ msg: 'Initializing wallet failed', err })
   }
   return true
@@ -319,7 +320,7 @@ export async function unlockWallet(self, walletPassword) {
     })
     setUnlocked(true)
   } catch (err) {
-    // this._notification.display({ type: 'error', msg: 'Invalid password' })    
+    // this._notification.display({ type: 'error', msg: 'Invalid password' })
     if (err.code === 12) {
       console.tron.log('Wallet already unlocked')
     } else {

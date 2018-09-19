@@ -12,13 +12,13 @@ process.env.GRPC_SSL_CIPHER_SUITES =
   'ECDHE-ECDSA-AES128-GCM-SHA256:' +
   'ECDHE-ECDSA-AES128-SHA256:' +
   'ECDHE-ECDSA-AES256-SHA384:' +
-  'ECDHE-ECDSA-AES256-GCM-SHA384'
+  'ECDHE-ECDSA-AES256-GCM-SHA384:' +
+  'HIGH+RCDSA'
 
 async function waitForCertPath(certPath) {
   let intervalId
   return new Promise(resolve => {
     intervalId = setInterval(() => {
-      // console.log('where are we')
       if (!fs.existsSync(certPath)) { return }
       clearInterval(intervalId)
       resolve()
@@ -30,7 +30,8 @@ async function getCredentials(lndSettingsDir) {
   const certPath = path.join(lndSettingsDir, 'tls.cert')
   await waitForCertPath(certPath)
   const lndCert = fs.readFileSync(certPath)
-  return grpc.credentials.createSsl(lndCert)
+  const createdCredentials = grpc.credentials.createSsl(lndCert)
+  return createdCredentials
 }
 
 function getMacaroonCreds(lndSettingsDir, network) {
@@ -61,7 +62,7 @@ module.exports.init = async function({
   ipcMain.on('unlockInit', async event => {
     console.log('ipc event: unlockInit')
     credentials = await getCredentials(lndSettingsDir)
-    protoPath = path.join(__dirname, '..', 'assets', 'rpc.proto')
+    protoPath = path.join(__dirname, 'rpc.proto')
     lnrpc = grpc.load(protoPath).lnrpc
     unlocker = new lnrpc.WalletUnlocker(`localhost:${lndPort}`, credentials)
     grpc.waitForClientReady(unlocker, Infinity, err => {
@@ -85,7 +86,6 @@ module.exports.init = async function({
     )
     lnd = new lnrpc.Lightning(`localhost:${lndPort}`, credentials)
     grpc.waitForClientReady(lnd, Infinity, err => {
-      console.tron.log('** Sending lndReady... **')
       event.sender.send('lndReady', { err })
     })
   })

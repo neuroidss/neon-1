@@ -14,14 +14,17 @@ function getProcessName(binName) {
 async function startChildProcess(name, args, logger) {
   return new Promise((resolve, reject) => {
     const processName = getProcessName(name)
-    logger.info(`Using ${name} in path ${processName}`)
+    console.log("Starting child process: ", name)
+    // logger.info(`Using ${name} in path ${processName}`)
     const childProcess = cp.spawn(processName, args)
     childProcess.stdout.on('data', data => {
-      logger.info(`${name}: ${data}`)
+      // console.log("child process data: ", data)
+      // logger.info(`${name}: ${data}`)
       resolve(childProcess)
     })
     childProcess.stderr.on('data', data => {
-      logger.error(`${name} Error: ${data}`)
+      // console.log("child process error: ", data)
+      // logger.error(`${name} Error: ${data}`)
       reject(new Error(data))
     })
     childProcess.on('error', reject)
@@ -31,13 +34,16 @@ async function startChildProcess(name, args, logger) {
 function startBlockingProcess(name, args, logger) {
   return new Promise((resolve, reject) => {
     const processName = getProcessName(name)
-    logger.info(`Using ${name} in path ${processName}`)
+    console.log("Starting blocking process: ", name)
+    // logger.info(`Using ${name} in path ${processName}`)
     const childProcess = cp.spawn(processName, args)
     childProcess.stdout.on('data', data => {
-      logger.info(`${name}: ${data}`)
+      // console.log(data)
+      // logger.info(`${name}: ${data}`)
     })
     childProcess.stderr.on('data', data => {
-      logger.error(`${name} Error: ${data}`)
+      // console.log(data)
+      // logger.error(`${name} Error: ${data}`)
       reject(new Error(data))
     })
     childProcess.on('exit', resolve)
@@ -61,7 +67,7 @@ module.exports.startLndProcess = async function({
     '--bitcoin.active',
     '--debuglevel=info',
     `--lnddir=${lndSettingsDir}`,
-    // `--routing.assumechanvalid`,
+    `--routing.assumechanvalid`,
     lndPort ? `--rpclisten=localhost:${lndPort}` : '',
     lndPeerPort ? `--listen=localhost:${lndPeerPort}` : '',
     lndRestPort ? `--restlisten=localhost:${lndRestPort}` : '',
@@ -91,8 +97,6 @@ module.exports.startLndProcess = async function({
     ])
   }
   args = args.concat(lndArgs)
-  console.log('startLndProcess args:', args)
-  console.log('----------------')
   return startChildProcess(processName, args, logger)
 }
 

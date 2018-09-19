@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import * as actions from './ipc.actions'
+import { EventEmitter } from 'events'
 
 /**
  * Handles IPC state
@@ -8,7 +9,7 @@ export const IpcStoreModel = types
   .model('IpcStore')
   .volatile(self => ({
     // @ts-ignore
-    ipcRenderer: window.ipcRenderer
+    ipcRenderer: process.env.NODE_ENV ? window.ipcRenderer : new EventEmitter()
   }))
   .actions(self => ({
     listen: async (event: string, callback: any): Promise<any> =>
@@ -16,7 +17,10 @@ export const IpcStoreModel = types
     send: async (event: string, listenTo: string, payload: any): Promise<any> =>
       await actions.send(self, event, listenTo, payload),
     sendIpc: async (event: string, listenTo: string, method: string, body: any): Promise<boolean> =>
-      await actions.sendIpc(self, event, listenTo, method, body)
+      await actions.sendIpc(self, event, listenTo, method, body),
+    setRenderer (value: any) {
+      self.ipcRenderer = value
+    }
   }))
 
 /**

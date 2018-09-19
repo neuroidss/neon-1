@@ -12,12 +12,15 @@ export const WalletStoreModel = types
     balanceConfirmedSatoshis: types.optional(types.number, 0),
     balancePendingSatoshis: types.optional(types.number, 0),
     balanceUnconfirmedSatoshis: types.optional(types.number, 0),
+    channelBalanceSatoshis: types.optional(types.number, 0),
+    channelPendingBalanceSatoshis: types.optional(types.number, 0),
     firstStart: types.optional(types.boolean, false),
     password: types.optional(types.string, ''),
     passwordVerify: types.optional(types.string, ''),
     pubKey: types.optional(types.string, ''),
     seedMnemonic: types.optional(types.array(types.string), []),
     seedVerify: types.optional(types.array(types.string), []),
+    syncedToChain: types.optional(types.boolean, false),
     unlocked: types.optional(types.boolean, false)
   })
   .actions(self => ({
@@ -76,6 +79,24 @@ export const WalletStoreModel = types
     update: async (): Promise<boolean> =>
       await actions.update(self),
     /** Basic setters */
+    setAddress(value: string) {
+      self.address = value
+    },
+    setBalanceConfirmedSatoshis(value: number) {
+      self.balanceConfirmedSatoshis = value
+    },
+    setBalanceSatoshis(value: number) {
+      self.balanceSatoshis = value
+    },
+    setBalanceUnconfirmedSatoshis(value: number) {
+      self.balanceUnconfirmedSatoshis = value
+    },
+    setChannelBalanceSatoshis(value: number) {
+      self.channelBalanceSatoshis = value
+    },
+    setChannelPendingBalanceSatoshis(value: number) {
+      self.channelPendingBalanceSatoshis = value
+    },
     setPassword(value: string) {
       self.password = value
     },

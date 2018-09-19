@@ -10,7 +10,8 @@ export async function setupRootStore(env: any) {
 
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     // Hack around a TS issue here...
-    (console.tron as any).trackMstNode(rootStore)
+    console.log('hang on')
+    // (console.tron as any).trackMstNode(rootStore)
   }
 
   return rootStore
