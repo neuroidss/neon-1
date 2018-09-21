@@ -28,6 +28,20 @@ const HOST_2 = `localhost:${LND_PEER_PORT_2}`
 const NAP_TIME = 5000
 const walletPassword = 'bitconneeeeeect'
 
+
+// declare global {
+//   interface Console {
+//     /**
+//      * Hey, it's Reactotron if we're in dev, and no-ops if we're in prod.
+//      */
+//     tron: typeof Reactotron
+//   }
+// }
+
+// global.window = {
+//   navigator: {}
+// }
+
 // @ts-ignore
 console.tron = {
   log: (wat) => console.log(wat)
