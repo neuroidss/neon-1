@@ -2,7 +2,7 @@
  * @fileOverview helper and utility functions that can be reused go here.
  */
 
-import { UNITS, LND_INIT_DELAY, RETRY_DELAY } from './lapp-config';
+import { UNITS, LND_INIT_DELAY, RETRY_DELAY } from './config';
 
 /**
  * Format a number value in locale format with either . or ,

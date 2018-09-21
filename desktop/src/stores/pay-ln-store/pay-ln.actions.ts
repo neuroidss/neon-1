@@ -1,6 +1,6 @@
 import { getRoot } from 'mobx-state-tree'
 import { toAmount, toHex, toSatoshis, parseDate, parseSat } from '../../helper'
-import { PAYMENT_TIMEOUT, PREFIX_URI } from '../../lapp-config'
+import { PAYMENT_TIMEOUT, PREFIX_URI } from '../../config'
 
 /**
  * Attempt to decode a lightning invoice using the lnd grpc api. If it is

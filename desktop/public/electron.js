@@ -17,7 +17,7 @@ const {
   LND_REST_PORT,
   LND_INIT_DELAY,
   BTCD_MINING_ADDRESS,
-} = require('../src/lapp-config')
+} = require('../src/config')
 
 const userDataPath = app.getPath('userData')
 const lndSettingsDir = path.join(isDev ? 'data' : userDataPath, 'lnd')
