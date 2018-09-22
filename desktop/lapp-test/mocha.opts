@@ -1,4 +1,0 @@
---exit
---recursive
---require babel-core/register
--r ./test/setup.js
