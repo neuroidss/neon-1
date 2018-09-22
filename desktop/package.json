@@ -30,10 +30,8 @@
     "lncli:create": "lncli --network=simnet --rpcserver=localhost:10006 --lnddir=data/lnd create",
     "lncli:unlock": "lncli --network=simnet --rpcserver=localhost:10006 --lnddir=data/lnd unlock",
     "lnd:clear": "rm -rf ./tests/data",
-    "lnd:certs:clear": "rm ./tests/data/lnd_1/tls.cert ./tests/data/lnd_1/tls.key ./tests/data/lnd_2/tls.cert ./tests/data/lnd_2/tls.key",
-    "lnd:certs:new": "cd ~/Library/Application\\ Support/Lnd/ && openssl ecparam -genkey -name prime256v1 -out tls.key && openssl req -new -sha256 -key tls.key -out csr.csr -subj '/CN=localhost/O=lnd' && openssl req -x509 -sha256 -days 36500 -key tls.key -in csr.csr -out tls.cert && rm csr.csr",
-    "lnd:certs:move": "cp ~/Library/Application\\ Support/Lnd/tls.cert ./tests/data/lnd_1/ && cp ~/Library/Application\\ Support/Lnd/tls.key ./tests/data/lnd_1/ && cp ~/Library/Application\\ Support/Lnd/tls.cert ./tests/data/lnd_2/ && cp ~/Library/Application\\ Support/Lnd/tls.key ./tests/data/lnd_2/",
-    "lnd:certs:trythis": "cd ./tests/data/lnd_2 && sudo openssl ecparam -genkey -name prime256v1 -out tls.key && sudo openssl req -new -sha256 -key tls.key -out csr.csr -subj '/CN=localhost/O=lnd' && sudo openssl req -x509 -sha256 -days 36500 -key tls.key -in csr.csr -out tls.cert"
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "blockstack": "^18.0.4",
@@ -50,6 +48,10 @@
     "react-scripts-ts": "2.17.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.15",
+    "@storybook/addon-links": "^3.3.15",
+    "@storybook/addons": "^3.3.15",
+    "@storybook/react": "^3.3.15",
     "@cypress/webpack-preprocessor": "^2.0.1",
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",
