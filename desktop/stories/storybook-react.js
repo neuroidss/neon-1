@@ -1,1 +1,1 @@
-export * from '@storybook/react';
+export * from '@storybook/react'
