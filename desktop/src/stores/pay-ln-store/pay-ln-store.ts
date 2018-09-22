@@ -108,6 +108,7 @@ export const PayLnStoreModel = types
       const t = self.transactions ? self.transactions.slice() : []
       const p = self.payments ? self.payments.slice() : []
       const i = self.invoices ? self.invoices.slice() : []
+      // @ts-ignore
       const all = [].concat(t, p, i)
       all.sort((a, b) => b.date.getTime() - a.date.getTime())
       all.forEach(t => {

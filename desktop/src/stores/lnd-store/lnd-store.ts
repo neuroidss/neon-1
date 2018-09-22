@@ -132,6 +132,7 @@ export const LndStoreModel = types
       const settings = { displayFiat: false, unit: 'sat' } // TODO: Tie to store
       const c = self.channels ? self.channels.slice() : []
       const p = self.pendingChannels ? self.pendingChannels.slice() : []
+      // @ts-ignore
       const all = [].concat(c, p)
       all.sort(
         (a, b) => (a.status > b.status ? -1 : a.status < b.status ? 1 : 0)

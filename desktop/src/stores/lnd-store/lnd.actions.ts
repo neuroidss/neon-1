@@ -173,6 +173,7 @@ export async function getChannels(self) {
     return true
   } catch (err) {
     console.log('Listing channels failed', err);
+    return false
   }
 }
 

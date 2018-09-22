@@ -200,7 +200,7 @@ export async function payBitcoin(self) {
  * display the wait screen while the payment confirms.
  * This action can be called from a view event handler as does all
  * the necessary error handling and notification display.
- * @return {Promise<undefined>}
+ * @return {Promise<boolean>}
  */
 export async function payLightning(self) {
   let failed = false
@@ -227,11 +227,11 @@ export async function payLightning(self) {
       stream.on('error', reject)
       stream.write(JSON.stringify({ payment_request: invoice }), 'utf8')
     })
-    if (failed) return
+    if (failed) return false
     // this._nav.goPayLightningDone();
   } catch (err) {
     console.log('Lightning payment failed!', err)
-    if (failed) return;
+    if (failed) return false
     // this._nav.goPayLightningConfirm();
     // this._notification.display({ msg: 'Lightning payment failed!', err });
   } finally {
