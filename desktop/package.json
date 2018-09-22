@@ -33,9 +33,7 @@
     "lnd:certs:clear": "rm ./tests/data/lnd_1/tls.cert ./tests/data/lnd_1/tls.key ./tests/data/lnd_2/tls.cert ./tests/data/lnd_2/tls.key",
     "lnd:certs:new": "cd ~/Library/Application\\ Support/Lnd/ && openssl ecparam -genkey -name prime256v1 -out tls.key && openssl req -new -sha256 -key tls.key -out csr.csr -subj '/CN=localhost/O=lnd' && openssl req -x509 -sha256 -days 36500 -key tls.key -in csr.csr -out tls.cert && rm csr.csr",
     "lnd:certs:move": "cp ~/Library/Application\\ Support/Lnd/tls.cert ./tests/data/lnd_1/ && cp ~/Library/Application\\ Support/Lnd/tls.key ./tests/data/lnd_1/ && cp ~/Library/Application\\ Support/Lnd/tls.cert ./tests/data/lnd_2/ && cp ~/Library/Application\\ Support/Lnd/tls.key ./tests/data/lnd_2/",
-    "lnd:certs:trythis": "cd ./tests/data/lnd_2 && sudo openssl ecparam -genkey -name prime256v1 -out tls.key && sudo openssl req -new -sha256 -key tls.key -out csr.csr -subj '/CN=localhost/O=lnd' && sudo openssl req -x509 -sha256 -days 36500 -key tls.key -in csr.csr -out tls.cert",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lnd:certs:trythis": "cd ./tests/data/lnd_2 && sudo openssl ecparam -genkey -name prime256v1 -out tls.key && sudo openssl req -new -sha256 -key tls.key -out csr.csr -subj '/CN=localhost/O=lnd' && sudo openssl req -x509 -sha256 -days 36500 -key tls.key -in csr.csr -out tls.cert"
   },
   "dependencies": {
     "blockstack": "^18.0.4",
@@ -91,11 +89,7 @@
     "typescript": "2.9.2",
     "unexpected": "^10.39.0",
     "unexpected-sinon": "^10.10.1",
-    "wait-on": "^3.0.1",
-    "@storybook/react": "^3.4.11",
-    "@storybook/addon-actions": "^3.4.11",
-    "@storybook/addon-links": "^3.4.11",
-    "@storybook/addons": "^3.4.11"
+    "wait-on": "^3.0.1"
   },
   "build": {
     "appId": "arcade.city.neon-desktop",
