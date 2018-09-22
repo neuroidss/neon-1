@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export class WelcomeScreen extends React.Component<{}, {}> {
+export class SplashScreen extends React.Component<{}, {}> {
 
   public async componentDidMount() {
     console.log('So')
@@ -9,8 +9,8 @@ export class WelcomeScreen extends React.Component<{}, {}> {
   public render() {
     return (
       <div>
-        <h1>Welcome [name]</h1>
-        <p>First-time explainer</p>
+        <h1>Neon</h1>
+        <p>Loading...</p>
       </div>
     )
   }
