@@ -11,5 +11,8 @@
   },
   "devDependencies": {
     "lerna": "^3.3.0"
+  },
+  "dependencies": {
+    "grpc": "^1.15.1"
   }
 }
