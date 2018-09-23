@@ -3,7 +3,7 @@ import * as React from 'react'
 import './config'
 import './App.css'
 import { setupRootStore } from './setup/setup-root-store'
-import { WelcomeScreen } from './components/WelcomeScreen'
+import { TestUnlockScreen } from './components/TestUnlockScreen'
 
 class App extends React.Component {
   constructor (props) {
@@ -34,7 +34,7 @@ class App extends React.Component {
 
     return (
       <Provider {...injectableStores}>
-        <WelcomeScreen />
+        <TestUnlockScreen />
       </Provider>
     )
   }
