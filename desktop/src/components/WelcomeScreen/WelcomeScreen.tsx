@@ -8,7 +8,7 @@ export class WelcomeScreen extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div>
+      <div className="centered">
         <h1>Welcome [name]</h1>
         <p>First-time explainer</p>
       </div>

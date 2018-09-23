@@ -8,7 +8,7 @@ export class LoginScreen extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div>
+      <div className="centered">
         <h1>Login</h1>
         <p>Facebook</p>
         <p>Google</p>

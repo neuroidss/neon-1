@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Text } from '../Text'
 
 export class SplashScreen extends React.Component<{}, {}> {
 
@@ -8,8 +9,8 @@ export class SplashScreen extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div>
-        <h1>Neon</h1>
+      <div className="centered" style={{marginTop: '15%'}}>
+        <Text preset="epic">NEON</Text>
         <p>Loading...</p>
       </div>
     )

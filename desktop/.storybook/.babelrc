@@ -1,8 +1,19 @@
 {
   "presets": [
-    "react-native"
+    "react", "react-native", "stage-2", "flow"
   ],
   "plugins": [
-    "react-native-web"
+    "react-native-web",
+    "transform-class-properties",
+    "transform-es2015-modules-commonjs",
+    [
+      "module-resolver",
+      {
+        "extensions": ["web.js", ".js", ".jsx", ".ts", ".tsx"],
+        "alias": {
+          "^react-native$": "react-native-web"
+        },
+      }
+    ]
   ]
 }

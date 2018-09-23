@@ -1,6 +1,7 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import Container from '../src/components/container'
+import '../src/index.css'
 
 addDecorator(story => <Container>{story()}</Container>)
 

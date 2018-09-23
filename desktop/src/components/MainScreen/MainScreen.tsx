@@ -8,7 +8,7 @@ export class MainScreen extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div>
+      <div className="centered" style={{marginTop: '10%'}}>
         <p>Create New Lightning Wallet</p>
         <p>Import Lightning Wallet</p>
         <p>Connect MetaMask</p>
