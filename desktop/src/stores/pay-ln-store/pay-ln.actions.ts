@@ -27,7 +27,7 @@ export async function decodeInvoice(self, invoice) {
     return true
   } catch (err) {
     console.log(`Decoding payment request failed: ${err.message}`)
-    return false;
+    return false
   }
 }
 
@@ -100,7 +100,7 @@ export async function getInvoices(self) {
   try {
     const root = getRoot(self) as any
     const { sendCommand } = root.lndStore
-    const { invoices } = await sendCommand('listInvoices');
+    const { invoices } = await sendCommand('listInvoices')
     const theInvoices = invoices.map(invoice => ({
       id: toHex(invoice.r_hash),
       type: 'lightning',
@@ -126,7 +126,7 @@ export async function getPayments(self) {
   try {
     const root = getRoot(self) as any
     const { sendCommand } = root.lndStore
-    const { payments } = await sendCommand('listPayments');
+    const { payments } = await sendCommand('listPayments')
     const thePayments = payments.map(payment => ({
       id: payment.payment_hash,
       type: 'lightning',
@@ -137,7 +137,7 @@ export async function getPayments(self) {
     }))
     self.setPayments(thePayments)
   } catch (err) {
-    console.log('Listing payments failed', err);
+    console.log('Listing payments failed', err)
   }
   return true
 }
@@ -164,7 +164,7 @@ export async function getTransactions(self) {
     }))
     self.setTransactions(theTransactions)
   } catch (err) {
-    console.log('Listing transactions failed', err);
+    console.log('Listing transactions failed', err)
   }
   return true
 }
@@ -227,15 +227,15 @@ export async function payLightning(self) {
       stream.on('error', reject)
       stream.write(JSON.stringify({ payment_request: invoice }), 'utf8')
     })
-    if (failed) return false
+    if (failed) { return false }
     // this._nav.goPayLightningDone();
   } catch (err) {
     console.log('Lightning payment failed!', err)
-    if (failed) return false
+    if (failed) { return false }
     // this._nav.goPayLightningConfirm();
     // this._notification.display({ msg: 'Lightning payment failed!', err });
   } finally {
-    clearTimeout(timeout);
+    clearTimeout(timeout)
   }
   return true
 }
