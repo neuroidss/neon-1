@@ -53,7 +53,7 @@ export async function closeSelectedChannel(self) {
   try {
     // const { selectedChannel } = this._store;
     // this._nav.goChannels();
-    await self.closeChannel(self.selectedChannel.channelPoint);
+    await self.closeChannel(self.selectedChannel.channelPoint)
   } catch (err) {
     console.log('Closing channel failed:', err)
     // this._notification.display({ msg: 'Closing channel failed!', err });
@@ -86,7 +86,7 @@ export async function connectAndOpenChannel(self) {
   try {
     const settings = { displayFiat: false, unit: 'sat' } // TODO: Tie to store
     // const { channel, settings } = this._store;
-    const amount = toSatoshis(self.channelAmount, settings);
+    const amount = toSatoshis(self.channelAmount, settings)
     if (!self.pubKeyAtHost.includes('@')) {
       // return this._notification.display({ msg: 'Please enter pubkey@host' });
       console.log('Please enter pubkey@host')
@@ -116,9 +116,9 @@ export async function connectToPeer(self, host, pubkey) {
   try {
     await self.sendCommand('connectPeer', {
       addr: { host, pubkey },
-    });
+    })
   } catch (err) {
-    console.log('Connecting to peer failed', err);
+    console.log('Connecting to peer failed', err)
   }
   return true
 }
@@ -150,7 +150,7 @@ export async function openChannel(self, pubkey, amount) {
 /**
  * List the open channels by calling the respective grpc api and updating
  * the channels array in the global store.
- // TODO: Fix the MST error on channel updating blah here
+ * // TODO: Fix the MST error on channel updating blah here
  * @return {Promise<undefined>}
  */
 export async function getChannels(self) {
@@ -172,7 +172,7 @@ export async function getChannels(self) {
     self.setChannels(theChannels)
     return true
   } catch (err) {
-    console.log('Listing channels failed', err);
+    console.log('Listing channels failed', err)
     return false
   }
 }
@@ -186,7 +186,7 @@ export async function getChannels(self) {
  */
 export async function getInfo(self) {
   try {
-    const response = await self.sendCommand('getInfo');
+    const response = await self.sendCommand('getInfo')
     self.setPubKey(response.identity_pubkey)
     self.setSyncedToChain(response.synced_to_chain)
 
@@ -199,9 +199,9 @@ export async function getInfo(self) {
     //   log.info(`Syncing to chain ... block height: ${response.block_height}`);
     //   this._store.percentSynced = this.calcPercentSynced(response);
     // }
-    return response.synced_to_chain;
+    return response.synced_to_chain
   } catch (err) {
-    console.log('Getting node info failed', err);
+    console.log('Getting node info failed', err)
   }
 }
 
@@ -252,7 +252,7 @@ export async function getPendingChannels(self) {
     const pendingChannels = [].concat(pocs, pccs, pfccs, wccs)
     self.setPendingChannels(pendingChannels)
   } catch (err) {
-    console.log('Listing pending channels failed', err);
+    console.log('Listing pending channels failed', err)
   }
   return true
 }
@@ -265,7 +265,7 @@ export async function getPendingChannels(self) {
  */
 export async function getPeers(self) {
   try {
-    const { peers } = await self.sendCommand('listPeers');
+    const { peers } = await self.sendCommand('listPeers')
     const thePeers = peers.map(peer => ({
       pubKey: peer.pub_key,
       peerId: peer.peer_id,
@@ -279,7 +279,7 @@ export async function getPeers(self) {
     }))
     self.setPeers(thePeers)
   } catch (err) {
-    console.log('Listing peers failed', err);
+    console.log('Listing peers failed', err)
   }
   return true
 }
@@ -403,6 +403,6 @@ function _parseChannelPoint(channelPoint) {
 function _removeClosedChannel(self, channelPoint) {
   const pc = self.pendingChannels.slice()
   const channel = pc.find(c => c.channelPoint === channelPoint)
-  if (channel) pc.splice(pc.indexOf(channel))
+  if (channel) { pc.splice(pc.indexOf(channel)) }
   self.setPendingChannels(pc)
 }
