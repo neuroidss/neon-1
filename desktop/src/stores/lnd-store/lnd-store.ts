@@ -130,21 +130,21 @@ export const LndStoreModel = types
   .views(self => ({
     get computedChannels() {
       const settings = { displayFiat: false, unit: 'sat' } // TODO: Tie to store
-      const c = self.channels ? self.channels.slice() : []
+      const channel = self.channels ? self.channels.slice() : []
       const p = self.pendingChannels ? self.pendingChannels.slice() : []
       // @ts-ignore
-      const all = [].concat(c, p)
+      const all = [].concat(channel, p)
       all.sort(
         (a, b) => (a.status > b.status ? -1 : a.status < b.status ? 1 : 0)
       )
       all.sort((a, b) => (a.active === b.active ? 0 : a.active ? -1 : 1))
       all.forEach(c => {
-        c.statusLabel = toCaps(c.status);
-        c.capacityLabel = toAmountLabel(c.capacity, settings);
-        c.localBalanceLabel = toAmountLabel(c.localBalance, settings);
-        c.remoteBalanceLabel = toAmountLabel(c.remoteBalance, settings);
+        c.statusLabel = toCaps(c.status)
+        c.capacityLabel = toAmountLabel(c.capacity, settings)
+        c.localBalanceLabel = toAmountLabel(c.localBalance, settings)
+        c.remoteBalanceLabel = toAmountLabel(c.remoteBalance, settings)
       })
-      return all;
+      return all
     }
   }))
 

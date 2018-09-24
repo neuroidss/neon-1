@@ -105,11 +105,11 @@ export const PayLnStoreModel = types
   .views(self => ({
     get computedTransactions() {
       const settings = { displayFiat: false, unit: 'sat' } // TODO: Tie to store
-      const t = self.transactions ? self.transactions.slice() : []
+      const transc = self.transactions ? self.transactions.slice() : []
       const p = self.payments ? self.payments.slice() : []
       const i = self.invoices ? self.invoices.slice() : []
       // @ts-ignore
-      const all = [].concat(t, p, i)
+      const all = [].concat(transc, p, i)
       all.sort((a, b) => b.date.getTime() - a.date.getTime())
       all.forEach(t => {
         t.idName = t.type === 'bitcoin' ? 'Transaction ID' : 'Invoice ID'
@@ -122,7 +122,7 @@ export const PayLnStoreModel = types
           ? toAmountLabel(t.fee, settings)
           : '-'
         if (Number.isInteger(t.confirmations)) {
-          t.confirmationsLabel = t.confirmations.toString();
+          t.confirmationsLabel = t.confirmations.toString()
         }
       })
       return all.slice(0, 100)
