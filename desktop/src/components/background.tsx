@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
   },
-});
+})
 
 export const Background = (props: BackgroundProps) => (
   <View style={[{ backgroundColor: props.color }, styles.background]}>

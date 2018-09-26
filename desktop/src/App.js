@@ -1,7 +1,8 @@
 import { Provider } from 'mobx-react'
 import * as React from 'react'
 import './config'
-import './App.css'
+import './config/reactotron'
+// import './App.css'
 import { setupRootStore } from './setup/setup-root-store'
 import { TestUnlockScreen } from './components/TestUnlockScreen'
 
