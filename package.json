@@ -3,7 +3,6 @@
   "workspaces": {
     "packages": [
       "desktop",
-      "mobile",
       "server",
       "web",
       "ui"

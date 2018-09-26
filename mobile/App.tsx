@@ -6,7 +6,7 @@ export default class App extends React.Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>It works.</Text>
+        <Text style={styles.text}>It works?</Text>
         <Button text="neon-ui works!" />
       </View>
     )
