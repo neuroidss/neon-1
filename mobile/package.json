@@ -4,6 +4,7 @@
   "description": "Neon mobile app",
   "private": true,
   "devDependencies": {
+    "@arcadecity/neon-ui": "0.0.1",
     "react-native-scripts-ts": "1.15.0",
     "@types/jest": "^22.2.3",
     "@types/react": "^16.3.14",
@@ -51,5 +52,13 @@
     "expo": "^27.0.1",
     "react": "16.3.1",
     "react-native": "~0.55.2"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native-web",
+      "**/react-native-web/**"
+    ]
   }
 }
