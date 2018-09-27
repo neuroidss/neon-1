@@ -2,7 +2,9 @@
   "private": true,
   "workspaces": {
     "packages": [
+      "core",
       "desktop",
+      "mobile",
       "server",
       "web",
       "ui"
