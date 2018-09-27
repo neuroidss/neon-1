@@ -1,0 +1,20 @@
+{
+  "name": "@arcadecity/neon-ui2",
+  "version": "0.0.1",
+  "description": "Neon universal components",
+  "license": "GPL-3.0",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build": "build-storybook"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.4.11",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "flow-bin": "^0.81.0"
+  }
+}

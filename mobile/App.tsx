@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native'
-// import { Button } from '@arcadecity/neon-ui'
+import { Button } from '@arcadecity/neon-ui'
 import test from '@arcadecity/neon-core/test'
 
 alert(test)
@@ -10,6 +10,7 @@ export default class App extends React.Component<{}> {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>It works?</Text>
+        <Button text="neon-ui works!" />
       </View>
     )
   }
@@ -27,5 +28,3 @@ const styles = StyleSheet.create({
     color: '#fff'
   }
 })
-
-// <Button text="neon-ui works!" />
