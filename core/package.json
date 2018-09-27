@@ -2,5 +2,6 @@
   "name": "@arcadecity/neon-core",
   "version": "0.0.1",
   "description": "Neon core functionality shared across platforms",
-  "private": true
+  "private": true,
+  "main": "index.js"
 }

@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { ButtonProps } from './button.props'
-import { Text } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 
 export function Button(props: ButtonProps) {
   return (
-    <Text style={{color: 'white'}}>This is almost a button</Text>
+    <TouchableOpacity style={{backgroundColor: 'blue', height: 60, width: 200, borderRadius: 10}} {...props}>
+      <Text style={{color: 'white'}}>Login: FB, Goog, BS, uPort, Anon?</Text>
+    </TouchableOpacity>
   )
 }
