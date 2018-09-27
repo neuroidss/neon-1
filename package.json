@@ -8,12 +8,17 @@
       "server",
       "web",
       "ui"
+    ],
+    "nohoist": [
+      "**/react-native-typescript-transformer",
+      "**/react-native-typescript-transformer/**"
     ]
   },
   "scripts": {
     "refresh": "yarn reset && yarn install --ignore-engines",
-    "reset": "yarn reset:root && yarn reset:desktop && yarn reset:mobile && yarn reset:server && yarn reset:ui && yarn reset:web",
+    "reset": "yarn reset:root && yarn reset:core && yarn reset:desktop && yarn reset:mobile && yarn reset:server && yarn reset:ui && yarn reset:web",
     "reset:root": "rm -rf node_modules && rm -rf yarn.lock",
+    "reset:core": "rm -rf core/node_modules && rm -rf core/yarn.lock",
     "reset:desktop": "rm -rf desktop/node_modules && rm -rf desktop/yarn.lock",
     "reset:mobile": "rm -rf mobile/node_modules && rm -rf mobile/yarn.lock",
     "reset:server": "rm -rf server/node_modules && rm -rf server/yarn.lock",
