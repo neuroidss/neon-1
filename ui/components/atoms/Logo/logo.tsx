@@ -1,6 +1,9 @@
 import * as React from 'react'
-import { Text } from 'react-native'
+import { Image } from 'react-native'
 
 export const Logo = (props: any) => (
-  <Text style={{color: 'white'}}>LOGO</Text>
+  <Image
+    style={{width: 350, height: 350}}
+    source={require('./neonlogo.png')}
+  />
 )
