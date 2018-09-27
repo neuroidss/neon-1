@@ -1,0 +1,7 @@
+{
+  "name": "@arcadecity/neon-ui2",
+  "version": "0.0.1",
+  "description": "Neon universal components",
+  "license": "GPL-3.0",
+  "main": "index.js"
+}
