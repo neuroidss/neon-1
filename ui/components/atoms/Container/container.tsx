@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 export const Container = (props: any, children: any) => (
   <View style={styles.container}>

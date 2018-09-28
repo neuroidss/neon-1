@@ -1,1 +1,1 @@
-export * from './stubs'
+export * from './src/stubs'

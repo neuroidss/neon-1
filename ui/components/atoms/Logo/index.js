@@ -1,3 +1,5 @@
+// export * from './logo'
+
 import * as React from 'react'
 import { Image } from 'react-native'
 

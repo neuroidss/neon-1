@@ -12760,6 +12760,12 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-app-rewire-typescript@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/react-app-rewire-typescript/-/react-app-rewire-typescript-2.0.2.tgz#ff24840a546b9af3d71ebcf115b9ec51ccddd773"
+  dependencies:
+    ts-loader "^3.1.1"
+
 react-app-rewire-yarn-workspaces@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/react-app-rewire-yarn-workspaces/-/react-app-rewire-yarn-workspaces-1.0.3.tgz#6b4c243ff93d8070b8b180e30e309992232acfa9"
@@ -15291,7 +15297,7 @@ ts-loader@^2.3.7:
     loader-utils "^1.0.2"
     semver "^5.0.1"
 
-ts-loader@^3:
+ts-loader@^3, ts-loader@^3.1.1:
   version "3.5.0"
   resolved "http://registry.npmjs.org/ts-loader/-/ts-loader-3.5.0.tgz#151d004dcddb4cf8e381a3bf9d6b74c2d957a9c0"
   dependencies:

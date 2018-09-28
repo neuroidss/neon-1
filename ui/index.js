@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { Image } from 'react-native'
+// import * as React from 'react'
+// import { Image } from 'react-native'
 
 export * from './components/atoms/Button'
 export * from './components/atoms/Container'
-// export * from './components/atoms/Logo'
-// export const Logo = 'grrrrrr'
+export * from './components/atoms/Logo'
+export const tester = 'grrrrrr'
 
 // export function Logo () {
 //   return (
@@ -19,4 +19,4 @@ export * from './components/atoms/Container'
 //   />
 // )
 
-export const Logo = 'a logo'
+// export const Logo = 'a logo'

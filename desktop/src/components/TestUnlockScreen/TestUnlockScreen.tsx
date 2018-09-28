@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import * as React from 'react'
-import { Logo, tester } from '@arcadecity/neon-ui'
+import { Button, Logo, tester } from '@arcadecity/neon-ui'
 import { loginStub } from '@arcadecity/neon-core'
 import { LndStore } from '../../stores/lnd-store'
 import { UserStore } from '../../stores/user-store'
@@ -9,6 +9,7 @@ import { WalletStore } from '../../stores/wallet-store'
 console.log('Logo is', Logo)
 console.log('loginStub is', loginStub)
 console.log('tester is', tester)
+console.log('Button is', Button)
 
 export interface TestUnlockScreenProps {
   lndStore: LndStore
@@ -34,6 +35,7 @@ export class TestUnlockScreen extends React.Component<TestUnlockScreenProps, {}>
 
     return (
       <div>
+        <Logo />
         <p className="header">Welcome!</p>
         <p className="header">Unlocker ready: {unlockerReady.toString()}</p>
         <p className="header">Wallet unlocked: {unlocked.toString()}</p>
