@@ -1,8 +1,13 @@
 import { inject, observer } from 'mobx-react'
 import * as React from 'react'
+import { Logo } from '@arcadecity/neon-ui'
+import { loginStub } from '@arcadecity/neon-core'
 import { LndStore } from '../../stores/lnd-store'
 import { UserStore } from '../../stores/user-store'
 import { WalletStore } from '../../stores/wallet-store'
+
+console.log('Logo is', Logo)
+console.log('loginStub is', loginStub)
 
 export interface TestUnlockScreenProps {
   lndStore: LndStore
@@ -32,6 +37,7 @@ export class TestUnlockScreen extends React.Component<TestUnlockScreenProps, {}>
         <p className="header">Unlocker ready: {unlockerReady.toString()}</p>
         <p className="header">Wallet unlocked: {unlocked.toString()}</p>
         <button onClick={loginBlockstack}>Login with Blockstack</button>
+        <button onClick={loginStub}>Fake Login</button>
       </div>
     )
   }
