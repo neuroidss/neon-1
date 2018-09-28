@@ -78,6 +78,8 @@
     "mocha": "^5.2.0",
     "mocha-webpack": "^1.1.0",
     "postinstall-prepare": "^1.0.1",
+    "react-app-rewire-yarn-workspaces": "^1.0.3",
+    "react-app-rewired": "^1.6.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "reactotron-mst": "^2.1.0",
     "reactotron-react-js": "https://github.com/ArcadeCity/reactotron-react-js/tarball/master",
