@@ -6,8 +6,7 @@
   "main": "crna-entry.js",
   "scripts": {
     "prestart": "node link-workspaces.js",
-    "start": "yarn ui:copy && react-native-scripts-ts start",
-    "ui:copy": "rm -rf ./node_modules/@arcadecity/neon-ui && mkdir -p ./node_modules/@arcadecity/neon-ui && cp -R ../ui/ ./node_modules/@arcadecity/neon-ui",
+    "start": "react-native-scripts-ts start",
     "eject": "react-native-scripts-ts eject",
     "android": "react-native-scripts-ts android",
     "ios": "react-native-scripts-ts ios",
