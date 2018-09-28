@@ -8,8 +8,8 @@
   "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
-    "start": "yarn lint && react-scripts-ts start",
-    "build": "yarn lint && react-scripts-ts build",
+    "start": "yarn lint && react-app-rewired start --scripts-version react-scripts-ts",
+    "build": "yarn lint && react-app-rewired build --scripts-version react-scripts-ts",
     "compile:test": "tsc --p ./tests/tsconfig.json && cp ./assets/rpc.proto ./tests/dist/public/",
     "test": "yarn compile:test && ../node_modules/.bin/mocha ./tests/dist/ --opts ./tests/mocha.opts",
     "lint": "tslint --project . --fix --format verbose",
