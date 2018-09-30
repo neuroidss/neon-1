@@ -1,5 +1,5 @@
 import { Platform, ViewStyle, TextStyle } from 'react-native'
-import { colors, spacing } from '../../theme'
+import { colors, spacing } from '../../../theme'
 
 const BASE_VIEW: ViewStyle = {
   paddingVertical: spacing[2],

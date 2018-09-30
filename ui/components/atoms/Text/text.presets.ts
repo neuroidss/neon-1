@@ -1,6 +1,6 @@
 import { TextStyle } from 'react-native'
-import { typography } from '../../theme/typography'
-import { colors, spacing } from '../../theme'
+import { typography } from '../../../theme/typography'
+import { colors, spacing } from '../../../theme'
 
 /**
  * All text will start off looking like this.
