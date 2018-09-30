@@ -1,10 +1,7 @@
-// const rewireTypescript = require('react-app-rewire-typescript')
+const path = require('path')
 const rewireYarnWorkspaces = require('react-app-rewire-yarn-workspaces')
+const getWorkspaces = require('get-yarn-workspaces')
 
 module.exports = function override(config, env) {
-  // config = rewireTypescript(config, env)
-
-  console.log('config:', config)
-
   return rewireYarnWorkspaces(config, env)
 }
