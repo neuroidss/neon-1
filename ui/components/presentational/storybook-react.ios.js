@@ -1,1 +1,1 @@
-export * from '@storybook/react-native';
+export * from '@storybook/react-native'
