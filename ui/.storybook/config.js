@@ -6,8 +6,9 @@ import Container from '../components/presentational/container'
 addDecorator(story => <Container>{story()}</Container>)
 
 function loadStories() {
-  const context = require.context('../theme', true, /.stories.tsx?$/)
-  console.log('context:',context)
+  const context = require.context('..', true, /.stories.tsx?$/)
+  console.log('context:', context)
+  console.log('type:', typeof context)
   context.keys().forEach(context)
 }
 

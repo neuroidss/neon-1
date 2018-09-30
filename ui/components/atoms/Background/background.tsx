@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 })
 
 export const Background = (props: BackgroundProps) => (
-  <View style={[{ backgroundColor: props.color }, styles.background]}>
+  <View style={[{ backgroundColor: props.color }, styles.background, props.style]}>
     {props.children}
   </View>
 )
