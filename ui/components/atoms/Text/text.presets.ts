@@ -1,20 +1,20 @@
 import { TextStyle } from 'react-native'
 import { typography } from '../../../theme/typography'
-import { colors, spacing } from '../../../theme'
+import { color, spacing } from '../../../theme'
 
 /**
  * All text will start off looking like this.
  */
 const BASE: TextStyle = {
   fontFamily: typography.primary,
-  color: colors.text,
+  color: color.text,
   fontSize: 14,
   lineHeight: 22
 }
 
 const SECONDARY: TextStyle = {
   ...BASE,
-  color: colors.dim
+  color: color.dim
 }
 
 /**
@@ -77,7 +77,7 @@ export const presets = {
   /**
    * Labels that appear on secondary buttons.
    */
-  secondaryLabel: { color: colors.secondaryText, fontSize: 16, lineHeight: 30 } as TextStyle,
+  secondaryLabel: { color: color.secondaryText, fontSize: 16, lineHeight: 30 } as TextStyle,
 
   /**
    * Section header text.
@@ -97,14 +97,14 @@ export const presets = {
     ...BASE,
     fontSize: 12,
     lineHeight: 14,
-    color: colors.error,
+    color: color.error,
     marginTop: spacing[2]
   } as TextStyle,
 
   /**
    * Link text.
    */
-  link: { ...BASE, color: colors.link, fontWeight: '500' } as TextStyle, // fontWeight: '500',
+  link: { ...BASE, color: color.link, fontWeight: '500' } as TextStyle, // fontWeight: '500',
 
   /**
    * Small secondary text.

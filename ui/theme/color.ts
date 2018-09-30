@@ -9,7 +9,7 @@ import { palette } from './palette'
  * If you have a specific use-case, like a spinner color.  It makes more sense to
  * put that in the <Spinner /> component.
  */
-export const colors = {
+export const color = {
   /**
    * The palette is available to use, but prefer using the name.
    */

@@ -1,5 +1,5 @@
 import { Platform, ViewStyle, TextStyle } from 'react-native'
-import { colors, spacing } from '../../../theme'
+import { color, spacing } from '../../../theme'
 
 const BASE_VIEW: ViewStyle = {
   paddingVertical: spacing[2],
@@ -38,7 +38,7 @@ const DISABLED_VIEW: ViewStyle = {
 }
 
 const BASE_TEXT: TextStyle = {
-  color: colors.text,
+  color: color.text,
   textAlign: 'center',
   paddingHorizontal: spacing[3]
 }
@@ -49,17 +49,17 @@ const BASE_TEXT: TextStyle = {
 export const viewPresets = {
   primary: {
     ...BASE_VIEW,
-    backgroundColor: colors.primary,
+    backgroundColor: color.primary,
     shadowColor: 'rgba(91, 32, 242, 0.2)'
   } as ViewStyle,
   secondary: {
     ...BASE_VIEW,
-    backgroundColor: colors.secondary,
+    backgroundColor: color.secondary,
     shadowColor: 'rgba(120, 101, 182, 0.12)'
   } as ViewStyle,
   highlight: {
     ...BASE_VIEW,
-    backgroundColor: colors.highlight,
+    backgroundColor: color.highlight,
     shadowColor: 'rgba(120, 101, 182, 0.12)'
   } as ViewStyle,
   icon: {
@@ -87,7 +87,7 @@ export const textPresets = {
   } as TextStyle,
   secondary: {
     ...BASE_TEXT,
-    color: colors.secondaryText
+    color: color.secondaryText
   } as TextStyle,
   icon: {
     padding: 0,
@@ -96,7 +96,7 @@ export const textPresets = {
     fontSize: 20
   } as TextStyle,
   small: {
-    backgroundColor: colors.background,
+    backgroundColor: color.background,
     borderRadius: 2,
     margin: 1,
     paddingHorizontal: 20,
@@ -110,7 +110,7 @@ export const textPresets = {
     })
   } as TextStyle,
   smaller: {
-    backgroundColor: colors.background,
+    backgroundColor: color.background,
     borderRadius: 2,
     margin: 1,
     paddingHorizontal: spacing[4] - 2,
@@ -131,11 +131,11 @@ export const textPresets = {
 export const disabledViewPresets = {
   primary: {
     ...DISABLED_VIEW,
-    backgroundColor: colors.primary
+    backgroundColor: color.primary
   } as ViewStyle,
   secondary: {
     ...DISABLED_VIEW,
-    backgroundColor: colors.secondary
+    backgroundColor: color.secondary
   } as ViewStyle,
   icon: {
     minHeight: 46,
