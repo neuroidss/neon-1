@@ -1,15 +1,10 @@
 import { inject, observer } from 'mobx-react'
 import * as React from 'react'
-import { Button, Logo, tester } from '@arcadecity/neon-ui'
+import { Logo } from '@arcadecity/neon-ui'
 import { loginStub } from '@arcadecity/neon-core'
 import { LndStore } from '../../stores/lnd-store'
 import { UserStore } from '../../stores/user-store'
 import { WalletStore } from '../../stores/wallet-store'
-
-console.log('Logo is', Logo)
-console.log('loginStub is', loginStub)
-console.log('tester is', tester)
-console.log('Button is', Button)
 
 export interface TestUnlockScreenProps {
   lndStore: LndStore
