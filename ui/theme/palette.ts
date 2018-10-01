@@ -1,5 +1,12 @@
 export const palette = {
   /**
+   * Neon colors
+   */
+  neonGreen: '#4ba434',
+  neonBright: '#71f259',
+  neonGreeen: '#33FF00',
+
+  /**
    * Arcade City colors
    * Color names per http://chir.ag/projects/name-that-color
    */

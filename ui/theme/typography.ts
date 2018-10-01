@@ -14,10 +14,10 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: 'Helvetica Neue', // GothamSSm-Book GothamSSm-Light
+  primary: 'Courier', // GothamSSm-Book GothamSSm-Light
 
   /**
    * An alternate font used for perhaps titles and stuff.
    */
-  secondary: 'Helvetica Neue'
+  secondary: 'Courier'
 }

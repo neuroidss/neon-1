@@ -5,6 +5,5 @@ import { Background } from '../components/atoms/Background'
 import { color } from './'
 
 storiesOf('Colors', module)
-  .add('Background', () => <Background color={color.background} />)
-  .add('Primary', () => <Background color={color.primary} />)
-  .add('Secondary', () => <Background color={color.secondary} />)
+  .add('Black', () => <Background color={color.black} />)
+  .add('Neon Green', () => <Background color={color.neon} />)
