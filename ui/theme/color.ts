@@ -16,6 +16,7 @@ export const color = {
   palette,
   neon: palette.neonGreen,
   black: palette.black,
+  white: palette.white,
   /**
    * A helper for making something see-thru. Use sparingly as many layers of transparency
    * can cause older Android devices to slow down due to the excessive compositing required
