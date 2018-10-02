@@ -1,14 +1,11 @@
 import * as React from 'react'
-import { Container } from '../../atoms/Container'
-import { Button } from '../../atoms/Button'
+import { Button, Container, QRCode, Text } from '../../atoms'
 
-export class WalletNewAddress extends React.Component<{}, {}> {
-
-  public render() {
-    return (
-      <Container>
-        <Button preset="small" text="Placeholder" />
-      </Container>
-    )
-  }
-}
+export const WalletNewAddress = () => (
+  <Container>
+    <Text preset="title" text="Your new address" />
+    <Text preset="title2" text="Scan the QR code or copy the address to send Bitcoin" />
+    <QRCode code='thecode' />
+    <Button preset="small" text="Done" />
+  </Container>
+)

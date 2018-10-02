@@ -5,7 +5,7 @@
  * inlining since the browser engine can scale an svg image tag directly.
  */
 
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { ImageBackground } from './image';
 

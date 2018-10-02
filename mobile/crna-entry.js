@@ -1,6 +1,6 @@
 import App from './App'
 import Expo from 'expo'
-import React from 'react'
+import * as React from 'react'
 
 const AwakeInDevApp = props => [
   <App key="app" {...props} />,

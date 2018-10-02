@@ -2,7 +2,7 @@
  * @fileOverview common background images for both iOS and Android.
  */
 
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { SvgBackground } from './image';
