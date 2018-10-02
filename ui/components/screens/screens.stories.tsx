@@ -5,13 +5,17 @@ import {
   MainSelect,
   PasswordSet,
   SeedRestore,
-  SeedSave,
+  SeedShow,
   SeedSuccess,
   SeedVerify,
   Splash,
   WalletNewAddress,
   WalletSyncing
 } from './'
+
+const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'future',
+'trust', 'swift', 'pluck', 'easy', 'kite', 'measure', 'engage', 'settle', 'dog',
+'manager', 'tool', 'fan', 'neglect', 'conduct', 'blouse', 'stone', 'quit', 'cashew']
 
 storiesOf('Screens')
   .add('Splash', () => (
@@ -23,8 +27,10 @@ storiesOf('Screens')
   .add('SeedRestore', () => (
     <SeedRestore />
   ))
-  .add('SeedSave', () => (
-    <SeedSave />
+  .add('SeedShow', () => (
+    <SeedShow
+      mnemonic={mnemonic}
+    />
   ))
   .add('SeedVerify', () => (
     <SeedVerify />

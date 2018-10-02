@@ -2,7 +2,7 @@ import * as React from 'react'
 import { StyleSheet, View } from 'react-native'
 
 export const Container = (props: any, children: any) => (
-  <View style={styles.container}>
+  <View style={[styles.container, props.style]}>
     {props.children}
   </View>
 )

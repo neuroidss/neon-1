@@ -1,6 +1,6 @@
 export * from './MainSelect'
 export * from './PasswordSet'
-export * from './SeedSave'
+export * from './SeedShow'
 export * from './SeedRestore'
 export * from './SeedSuccess'
 export * from './SeedVerify'

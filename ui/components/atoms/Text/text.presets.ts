@@ -7,7 +7,7 @@ import { color, spacing } from '../../../theme'
  */
 const BASE: TextStyle = {
   fontFamily: typography.primary,
-  color: color.text,
+  color: color.neon,
   fontSize: 14,
   lineHeight: 22
 }
@@ -42,6 +42,12 @@ export const presets = {
    * Header text.
    */
   header: { ...BASE, fontWeight: '900', lineHeight: 16 } as TextStyle,
+
+  seed: {
+    ...BASE,
+    fontSize: 14,
+    paddingLeft: 10
+  },
 
   /**
    * Large bold headers.
