@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Container, Text } from '../../atoms'
-import { SeedEntry } from './SeedEntry'
+import { SeedEntry } from '../../atoms'
 
 export const SeedRestore = () => (
   <Container>
