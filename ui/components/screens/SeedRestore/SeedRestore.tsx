@@ -1,14 +1,10 @@
 import * as React from 'react'
-import { Container } from '../../atoms/Container'
-import { Button } from '../../atoms/Button'
+import { Button, Container, Text } from '../../atoms'
 
-export class SeedRestore extends React.Component<{}, {}> {
-
-  public render() {
-    return (
-      <Container>
-        <Button preset="small" text="Placeholder" />
-      </Container>
-    )
-  }
-}
+export const SeedRestore = () => (
+  <Container>
+    <Text preset="title" text="Restore your wallet" />
+    <Text preset="title2" text="Type the 1st, 2nd, and 3rd words of your recovery phrase." />
+    <Button preset="small" text="Next" />
+  </Container>
+)
