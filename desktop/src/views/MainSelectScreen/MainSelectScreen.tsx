@@ -14,8 +14,8 @@ export class MainSelectScreen extends React.Component<MainSelectScreenProps, {}>
     const { setScreen } = this.props.navStore
     return (
       <MainSelect
-        navToCreateWallet={() => setScreen('createWallet')}
-        navToRestoreWallet={() => setScreen('restoreWallet')}
+        navToCreateWallet={() => setScreen('seedShow')}
+        navToRestoreWallet={() => setScreen('seedRestore')}
       />
     )
   }

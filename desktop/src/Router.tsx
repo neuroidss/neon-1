@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { NavStore } from '@arcadecity/neon-core'
 import {
   MainSelectScreen,
+  SeedRestoreScreen,
   SeedShowScreen
 } from './views'
 
@@ -18,8 +19,11 @@ export class Router extends React.Component<RouterProps, {}> {
     const { screen } = this.props.navStore
 
     switch (screen) {
-      case 'createWallet':
+      case 'seedShow':
         screenComponent = <SeedShowScreen />
+        break
+      case 'seedRestore':
+        screenComponent = <SeedRestoreScreen />
         break
       default:
         screenComponent = <MainSelectScreen />
