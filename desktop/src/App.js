@@ -27,6 +27,7 @@ class App extends React.Component {
     const injectableStores = {
       lndStore: store.lndStore,
       payLnStore: store.payLnStore,
+      navStore: store.navStore,
       uiStore: store.uiStore,
       userStore: store.userStore,
       walletStore: store.walletStore

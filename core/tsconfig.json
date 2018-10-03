@@ -23,7 +23,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
-    "skipLibCheck": true
+    "skipLibCheck": true    
   },
   "exclude": [
     "node_modules"

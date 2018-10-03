@@ -5,6 +5,7 @@ import { PayLnStoreModel } from '../pay-ln-store'
 import { UiStoreModel } from '../ui-store'
 import { UserStoreModel } from '../user-store'
 import { WalletStoreModel } from '../wallet-store'
+import { NavStoreModel } from '@arcadecity/neon-core'
 
 /**
  * An RootStore model.
@@ -15,6 +16,7 @@ export const RootStoreModel = types
     // @ts-ignore
     ipcStore: types.optional(IpcStoreModel, { ipcRenderer: process.env.NODE_ENV ? window.ipcRenderer : undefined }),
     lndStore: types.optional(LndStoreModel, {}),
+    navStore: types.optional(NavStoreModel, {}),
     payLnStore: types.optional(PayLnStoreModel, {}),
     uiStore: types.optional(UiStoreModel, {}),
     userStore: types.optional(UserStoreModel, {}),
