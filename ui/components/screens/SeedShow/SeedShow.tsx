@@ -8,6 +8,11 @@ Write it down and keep it in a safe place."
 
 export const SeedShow = (props: any) => (
   <Container style={{ paddingHorizontal: '20%' }}>
+    <Button
+      preset="small"
+      text="Back"
+      onPress={props.goBack}
+    />
     <Text preset="title" text="Save your recovery phrase" />
     <Text preset="title2" text={explainer} />
     <SeedGrid mnemonic={props.mnemonic} />

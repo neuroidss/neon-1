@@ -15,10 +15,11 @@ const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'fu
 @observer
 export class SeedShowScreen extends React.Component<SeedShowScreenProps, {}> {
   public render() {
-    // const { setScreen } = this.props.navStore
+    const { goBack } = this.props.navStore
     return (
       <SeedShow
         mnemonic={mnemonic}
+        goBack={goBack}
       />
     )
   }
