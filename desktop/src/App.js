@@ -2,9 +2,8 @@ import { Provider } from 'mobx-react'
 import * as React from 'react'
 import './config'
 import './config/reactotron'
-// import './App.css'
 import { setupRootStore } from './setup/setup-root-store'
-import { TestUnlockScreen } from './views/TestUnlockScreen'
+import { MainSelectScreen } from './views/MainSelectScreen'
 
 class App extends React.Component {
   constructor (props) {
@@ -35,7 +34,7 @@ class App extends React.Component {
 
     return (
       <Provider {...injectableStores}>
-        <TestUnlockScreen />
+        <MainSelectScreen />
       </Provider>
     )
   }
