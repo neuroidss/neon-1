@@ -11,18 +11,21 @@ interface QRCodeProps {
 
 const styles = StyleSheet.create({
   base: {
-    padding: 30,
-    borderRadius: 13,
-    backgroundColor: color.white
+    padding: 3,
+    borderRadius: 3,
+    backgroundColor: color.neon,
+    marginVertical: 20
   }
 })
 
 export const QRCode = (props: QRCodeProps) => {
+  console.log('In QRCode with code', props.code)
   const uri = `data:image/png;base64,${QRImage.imageSync(props.code, {
     type: 'png',
     size: 10,
     margin: 0,
   }).toString('base64')}`;
+  console.log(uri)
   return (
     <View style={[styles.base, props.style]}>
       <Image source={{ uri }} style={{ width: props.size, height: props.size }} />

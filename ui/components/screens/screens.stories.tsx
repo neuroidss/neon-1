@@ -42,7 +42,9 @@ storiesOf('Screens')
     <SeedSuccess />
   ))
   .add('WalletNewAddress', () => (
-    <WalletNewAddress />
+    <WalletNewAddress
+      code={'bitcoin:ra2XT898gWTp9q2DwMgtwMJsUEh3oMeS4K'}
+    />
   ))
   .add('WalletSyncing', () => (
     <WalletSyncing />
