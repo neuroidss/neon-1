@@ -1,22 +1,27 @@
-import { Provider } from 'mobx-react'
 import * as React from 'react'
+import { Provider } from 'mobx-react'
 import './config'
 import './config/reactotron'
 import { setupRootStore } from './setup/setup-root-store'
-import { MainSelectScreen } from './views/MainSelectScreen'
+import { Router } from './Router'
 
-class App extends React.Component {
+interface AppState {
+  ready: boolean
+  store?: any
+}
+
+class App extends React.Component<{}, AppState> {
   constructor (props) {
     super(props)
     this.state = { ready: false }
   }
 
-  componentDidMount = async () => {
+  public async componentDidMount() {
     const store = await setupRootStore({})
     this.setState({ ready: true, store })
   }
 
-  render() {
+  public render() {
     const { ready, store } = this.state
     if (!ready) {
       return ( // TODO
@@ -35,7 +40,7 @@ class App extends React.Component {
 
     return (
       <Provider {...injectableStores}>
-        <MainSelectScreen />
+        <Router />
       </Provider>
     )
   }

@@ -15,17 +15,17 @@ interface HorizontalExpandingTextInputState {
 
 export class HorizontalExpandingTextInput extends React.Component<HorizontalExpandingTextInputProps, HorizontalExpandingTextInputState> {
   constructor(props) {
-    super(props);
-    this.state = { text: '', width: 0 };
+    super(props)
+    this.state = { text: '', width: 0 }
   }
-  render() {
-    const { value, charWidth, onChangeText, style, ...props } = this.props;
+  public render() {
+    const { value, charWidth, onChangeText, style, ...props } = this.props
     return (
       <TextInput
         value={value || this.state.text}
         onChangeText={text => {
-          this.setState({ text, width: charWidth * (text.length + 1) });
-          onChangeText && onChangeText(text);
+          this.setState({ text, width: charWidth * (text.length + 1) })
+          onChangeText(text) // onChangeText && 
         }}
         style={[
           style,
@@ -38,6 +38,6 @@ export class HorizontalExpandingTextInput extends React.Component<HorizontalExpa
         ]}
         {...props}
       />
-    );
+    )
   }
 }

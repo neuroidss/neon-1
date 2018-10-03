@@ -7,7 +7,7 @@ import { types } from 'mobx-state-tree'
 export const NavStoreModel = types
   .model('NavStore')
   .props({
-    screen: types.optional(types.string, '') // TODO: Make enum of available screens
+    screen: types.optional(types.string, 'welcome') // TODO: Make enum of available screens
   })
   .actions(self => ({
     setScreen (value: string) {

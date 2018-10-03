@@ -4,7 +4,7 @@ import { NavStore } from '@arcadecity/neon-core'
 import { MainSelect } from '@arcadecity/neon-ui'
 
 export interface MainSelectScreenProps {
-  navStore: NavStore
+  navStore?: NavStore
 }
 
 @inject('navStore')

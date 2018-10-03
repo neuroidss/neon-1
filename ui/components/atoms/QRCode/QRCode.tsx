@@ -24,11 +24,11 @@ export const QRCode = (props: QRCodeProps) => {
     type: 'png',
     size: 10,
     margin: 0,
-  }).toString('base64')}`;
+  }).toString('base64')}`
   console.log(uri)
   return (
     <View style={[styles.base, props.style]}>
       <Image source={{ uri }} style={{ width: props.size, height: props.size }} />
     </View>
-  );
-};
+  )
+}
