@@ -11,9 +11,9 @@ interface QRCodeProps {
 
 const styles = StyleSheet.create({
   base: {
-    padding: 3,
-    borderRadius: 3,
-    backgroundColor: color.neon,
+    padding: 25,
+    borderRadius: 25,
+    backgroundColor: color.white,
     marginVertical: 20
   }
 })
