@@ -4,7 +4,7 @@ import './config'
 import './config/reactotron'
 // import './App.css'
 import { setupRootStore } from './setup/setup-root-store'
-import { TestUnlockScreen } from './components/TestUnlockScreen'
+import { TestUnlockScreen } from './views/TestUnlockScreen'
 
 class App extends React.Component {
   constructor (props) {
