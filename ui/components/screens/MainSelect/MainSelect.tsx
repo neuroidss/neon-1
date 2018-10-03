@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Button, Container, Logo } from '../../atoms'
 
 interface MainSelectProps {
-  navToCreateWallet: func
-  navToRestoreWallet: func
+  navToCreateWallet: () => void
+  navToRestoreWallet: () => void
 }
 
 export const MainSelect = (props: MainSelectProps) => (
@@ -11,13 +11,13 @@ export const MainSelect = (props: MainSelectProps) => (
     <Logo />
     <Button
       preset="small"
-      onPress={props.navToCreateWallet}
       text="Create new Lightning wallet"
+      onPress={props.navToCreateWallet}
     />
     <Button
       preset="small"
-      onPress={props.navToRestoreWallet}
       text="Recover existing Lightning wallet"
+      onPress={props.navToRestoreWallet}
     />
   </Container>
 )

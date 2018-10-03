@@ -22,7 +22,10 @@ storiesOf('Screens')
     <Splash />
   ))
   .add('MainSelect', () => (
-    <MainSelect />
+    <MainSelect
+      navToCreateWallet={() => alert('Nav to createWallet')}
+      navToRestoreWallet={() => alert('Nav to restoreWallet')}
+    />
   ))
   .add('SeedRestore', () => (
     <SeedRestore />
