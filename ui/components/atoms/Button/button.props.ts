@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ViewStyle, TouchableOpacityProperties, TextStyle } from 'react-native'
+import { TextStyle, TouchableOpacityProperties, ViewStyle } from 'react-native'
 
 export interface ButtonProps extends TouchableOpacityProperties {
   stretch?: boolean

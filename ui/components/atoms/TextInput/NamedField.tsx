@@ -3,6 +3,12 @@ import { StyleSheet, View } from 'react-native'
 import { Text } from '../'
 import { color } from '../../../theme'
 
+interface NamedFieldProps {
+  name: string
+  children: any
+  style: any
+}
+
 const namedStyles = StyleSheet.create({
   content: {
     alignSelf: 'stretch',
@@ -27,11 +33,11 @@ const namedStyles = StyleSheet.create({
   }
 })
 
-export const NamedField = ({ name, children, style }) => (
-  <View style={[namedStyles.content, style]}>
-    <Text style={namedStyles.name}>{name}</Text>
+export const NamedField = (props: NamedFieldProps) => (
+  <View style={[namedStyles.content, props.style]}>
+    <Text style={namedStyles.name}>{props.name}</Text>
     <Text style={namedStyles.text} numberOfLines={1}>
-      {children}
+      {props.children}
     </Text>
   </View>
 )

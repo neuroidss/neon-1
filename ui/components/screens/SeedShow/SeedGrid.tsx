@@ -5,7 +5,7 @@ import { SeedWord } from './SeedWord'
 export const SeedGrid = (props: any) => (
   <View style={listStyles.wrapper}>
     <View style={listStyles.words}>
-      {props.mnemonic.map((word, i) => (
+      {props.mnemonic.map((word: string, i: number) => (
         <SeedWord word={word} index={i + 1} key={i} />
       ))}
     </View>

@@ -3,6 +3,11 @@ import { View, StyleSheet } from 'react-native'
 import { Text } from '../../atoms'
 import { color } from '../../../theme'
 
+interface SeedWordProps {
+  word: string
+  index: number
+}
+
 const wordStyles = StyleSheet.create({
   wrapper: {
     justifyContent: 'center',
@@ -15,10 +20,10 @@ const wordStyles = StyleSheet.create({
   }
 })
 
-export const SeedWord = ({ word, index }) => (
+export const SeedWord = (props: SeedWordProps) => (
   <View style={wordStyles.wrapper}>
     <Text preset="seed">
-      {index}. {word}
+      {props.index}. {props.word}
     </Text>
   </View>
 )

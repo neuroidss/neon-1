@@ -14,7 +14,7 @@ interface HorizontalExpandingTextInputState {
 }
 
 export class HorizontalExpandingTextInput extends React.Component<HorizontalExpandingTextInputProps, HorizontalExpandingTextInputState> {
-  constructor(props) {
+  constructor(props: any) {
     super(props)
     this.state = { text: '', width: 0 }
   }
@@ -23,9 +23,9 @@ export class HorizontalExpandingTextInput extends React.Component<HorizontalExpa
     return (
       <TextInput
         value={value || this.state.text}
-        onChangeText={text => {
+        onChangeText={(text: string) => {
           this.setState({ text, width: charWidth * (text.length + 1) })
-          onChangeText(text) // onChangeText && 
+          onChangeText(text) // onChangeText &&
         }}
         style={[
           style,
