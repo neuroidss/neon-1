@@ -5,6 +5,7 @@ import { color, typography } from '../../../theme'
 
 interface InputFieldProps {
   style?: any
+  placeholder?: string
 }
 
 const inputStyles = StyleSheet.create({
