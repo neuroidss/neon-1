@@ -1,24 +1,41 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { NavStore } from '@arcadecity/neon-core'
-import { SeedShow } from '@arcadecity/neon-ui'
+import { Loading, SeedShow } from '@arcadecity/neon-ui'
+import { WalletStore } from '../../stores/wallet-store'
 
 export interface SeedShowScreenProps {
   navStore?: NavStore
+  walletStore?: WalletStore
 }
 
-const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'future',
-'trust', 'swift', 'pluck', 'easy', 'kite', 'measure', 'engage', 'settle', 'dog',
-'manager', 'tool', 'fan', 'neglect', 'conduct', 'blouse', 'stone', 'quit', 'cashew']
-
-@inject('navStore')
+@inject('navStore', 'walletStore')
 @observer
 export class SeedShowScreen extends React.Component<SeedShowScreenProps, {}> {
+
+  public componentWillMount() {
+    // @ts-ignore
+    const { seedMnemonic } = this.props.walletStore
+    console.tron.log('componentWillMount - seedMnemonic:')
+    console.tron.log(seedMnemonic)
+  }
+
   public render() {
+    // @ts-ignore
+    const { seedMnemonic } = this.props.walletStore
     const { goBack } = this.props.navStore
+
+    if (seedMnemonic.length === 0) {
+      return (
+        <Loading
+          text="Creating recovery phrase"
+        />
+      )
+    }
+
     return (
       <SeedShow
-        mnemonic={mnemonic}
+        mnemonic={seedMnemonic}
         goBack={goBack}
       />
     )

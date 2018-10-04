@@ -20,7 +20,7 @@ export const RootStoreModel = types
     payLnStore: types.optional(PayLnStoreModel, {}),
     uiStore: types.optional(UiStoreModel, {}),
     userStore: types.optional(UserStoreModel, {}),
-    walletStore: types.optional(WalletStoreModel, {})
+    walletStore: types.optional(WalletStoreModel, WalletStoreModel.create({}))
   })
 
 /**
