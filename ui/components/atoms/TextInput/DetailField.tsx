@@ -3,6 +3,12 @@ import { StyleSheet, View } from 'react-native'
 import { Text } from '../'
 import { color } from '../../../theme'
 
+interface DetailFieldProps {
+  name: string,
+  children: any,
+  style: any
+}
+
 const detailStyles = StyleSheet.create({
   content: {
     alignSelf: 'stretch',
@@ -23,9 +29,9 @@ const detailStyles = StyleSheet.create({
   }
 })
 
-export const DetailField = ({ name, children, style }) => (
-  <View style={[detailStyles.content, style]}>
-    <Text style={detailStyles.name}>{name}</Text>
-    <Text style={detailStyles.text}>{children}</Text>
+export const DetailField = (props: DetailFieldProps) => (
+  <View style={[detailStyles.content, props.style]}>
+    <Text style={detailStyles.name}>{props.name}</Text>
+    <Text style={detailStyles.text}>{props.children}</Text>
   </View>
 )

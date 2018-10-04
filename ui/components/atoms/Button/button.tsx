@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { ButtonProps } from './button.props'
-import { viewPresets, textPresets, disabledViewPresets } from './button.presets'
+import { disabledViewPresets, textPresets, viewPresets } from './button.presets'
 import { Text } from '../Text'
 
 const DEFAULT_ACTIVE_OPACITY: number = 0.6
