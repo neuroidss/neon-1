@@ -11,13 +11,13 @@ import {
   Splash,
   WalletNewAddress,
   WalletSyncing
-} from './'
+} from './wallet-onboarding'
 
 const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'future',
 'trust', 'swift', 'pluck', 'easy', 'kite', 'measure', 'engage', 'settle', 'dog',
 'manager', 'tool', 'fan', 'neglect', 'conduct', 'blouse', 'stone', 'quit', 'cashew']
 
-storiesOf('Screens')
+storiesOf('Screens (Onboarding)')
   .add('Splash', () => (
     <Splash />
   ))
@@ -51,4 +51,9 @@ storiesOf('Screens')
   ))
   .add('WalletSyncing', () => (
     <WalletSyncing />
+  ))
+
+storiesOf('Screens (Wallet)')
+  .add('Splash', () => (
+    <Splash />
   ))

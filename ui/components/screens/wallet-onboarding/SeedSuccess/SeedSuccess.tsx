@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Container, Text } from '../../atoms'
+import { Button, Container, Text } from '../../../atoms'
 
 export const SeedSuccess = () => (
   <Container>

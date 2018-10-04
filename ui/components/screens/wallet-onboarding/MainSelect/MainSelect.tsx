@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Container, Logo } from '../../atoms'
+import { Button, Container, Logo } from '../../../atoms'
 
 interface MainSelectProps {
   navToCreateWallet: () => void

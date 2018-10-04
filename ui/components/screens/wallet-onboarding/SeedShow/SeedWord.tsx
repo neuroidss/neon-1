@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Text } from '../../atoms'
-import { color } from '../../../theme'
+import { Text } from '../../../atoms'
+import { color } from '../../../../theme'
 
 interface SeedWordProps {
   word: string

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Container } from '../../atoms/Container'
-import { Logo } from '../../atoms/Logo'
+import { Container } from '../../../atoms/Container'
+import { Logo } from '../../../atoms/Logo'
 
 export class Splash extends React.Component<{}, {}> {
 

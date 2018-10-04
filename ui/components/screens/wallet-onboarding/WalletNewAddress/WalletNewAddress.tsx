@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Container, QRCode, Text } from '../../atoms'
+import { Button, Container, QRCode, Text } from '../../../atoms'
 
 interface WalletNewAddressProps {
   code: string

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Button, Container, Text } from '../../atoms'
-import { InputField } from '../../atoms'
+import { Button, Container, Text } from '../../../atoms'
+import { InputField } from '../../../atoms'
 
 export const PasswordSet = () => (
   <Container>

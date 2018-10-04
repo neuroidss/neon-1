@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Container, Text } from '../../atoms'
+import { Button, Container, Text } from '../../../atoms'
 import { SeedGrid } from './SeedGrid'
 
 const explainer = "A recovery phrase is a group of words that will \
