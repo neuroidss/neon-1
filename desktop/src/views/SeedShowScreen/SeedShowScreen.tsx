@@ -15,9 +15,10 @@ export class SeedShowScreen extends React.Component<SeedShowScreenProps, {}> {
 
   public componentWillMount() {
     // @ts-ignore
-    const { seedMnemonic } = this.props.walletStore
-    console.tron.log('componentWillMount - seedMnemonic:')
-    console.tron.log(seedMnemonic)
+    const { generateSeed, seedMnemonic } = this.props.walletStore
+    if (seedMnemonic.length === 0) {
+      generateSeed()
+    }
   }
 
   public render() {
