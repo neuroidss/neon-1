@@ -7,8 +7,7 @@
       "mobile",
       "server",
       "web",
-      "ui",
-      "ui2"
+      "ui"
     ],
     "nohoist": [
       "**/react-native-typescript-transformer",
