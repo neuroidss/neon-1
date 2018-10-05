@@ -7,9 +7,9 @@ import {
 } from './wallet-onboarding'
 import {
   ChannelCreate, ChannelDelete, ChannelDetails, Channels, ChannelsOpening, CLI,
-  Deposit, Home, Invoice, InvoiceQR, PayBitcoin, PayBitcoinConfirm, PayBitcoinDone,
-  PayLightning, PayLightningConfirm, PayLightningDone, PaymentFailed, Settings,
-  SettingsFiat, SettingsUnits, TransactionDetails, Transactions
+  Deposit, Home, Invoice, InvoiceQR, Notifications, PayBitcoin, PayBitcoinConfirm,
+  PayBitcoinDone, PayLightning, PayLightningConfirm, PayLightningDone, PaymentFailed,
+  Settings, SettingsFiat, SettingsUnits, TransactionDetails, Transactions
 } from './wallet-manage'
 
 const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'future',
@@ -72,7 +72,9 @@ storiesOf('Screens (Wallet)')
     <CLI />
   ))
   .add('Deposit', () => (
-    <Deposit />
+    <Deposit
+      code={'bitcoin:ra2XT898gWTp9q2DwMgtwMJsUEh3oMeS4K'}
+    />
   ))
   .add('Home', () => (
     <Home />
@@ -81,7 +83,12 @@ storiesOf('Screens (Wallet)')
     <Invoice />
   ))
   .add('InvoiceQR', () => (
-    <InvoiceQR />
+    <InvoiceQR
+      code={'bitcoin:ra2XT898gWTp9q2DwMgtwMJsUEh3oMeS4K'}
+    />
+  ))
+  .add('Notifications', () => (
+    <Notifications />
   ))
   .add('PayBitcoin', () => (
     <PayBitcoin />

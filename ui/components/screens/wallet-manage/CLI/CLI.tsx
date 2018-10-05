@@ -1,9 +1,15 @@
 import * as React from 'react'
-import { Button, Container, Text } from '../../../atoms'
+import { Container, Text } from '../../../atoms'
 
 export const CLI = () => (
   <Container>
-    <Text preset="title2" text="Placeholder" />
-    <Button preset="small" text="Placeholder" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
+    <Text preset="title2" text="A bunch of text" />
   </Container>
 )

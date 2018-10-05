@@ -1,9 +1,16 @@
 import * as React from 'react'
-import { Button, Container, Text } from '../../../atoms'
+import { Button, Container, QRCode, Text } from '../../../atoms'
 
-export const Deposit = () => (
+interface WalletNewAddressProps {
+  code: string
+}
+
+export const Deposit = (props: WalletNewAddressProps) => (
   <Container>
-    <Text preset="title2" text="Placeholder" />
-    <Button preset="small" text="Placeholder" />
+    <Text preset="title" text="Deposit funds" />
+    <Text preset="title2" text="Scan the QR code or copy the address to send Bitcoin" />
+    <QRCode code={props.code} size={160} />
+    <Text preset="title2" text={props.code} />
+    <Button preset="small" text="Done" />
   </Container>
 )

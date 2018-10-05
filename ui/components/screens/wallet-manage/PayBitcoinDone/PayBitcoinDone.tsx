@@ -3,7 +3,8 @@ import { Button, Container, Text } from '../../../atoms'
 
 export const PayBitcoinDone = () => (
   <Container>
-    <Text preset="title2" text="Placeholder" />
-    <Button preset="small" text="Placeholder" />
+    <Text preset="title2" text="Payment processing" />
+    <Button preset="small" text="Done" />
+    <Button preset="small" text="Another payment" />
   </Container>
 )
