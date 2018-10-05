@@ -1,4 +1,5 @@
 export * from './MainSelect'
+export * from './PasswordRestore'
 export * from './PasswordSet'
 export * from './SeedShow'
 export * from './SeedRestore'

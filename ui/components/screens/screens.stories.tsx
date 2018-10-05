@@ -2,8 +2,8 @@ import * as React from 'react'
 // @ts-ignore
 import { storiesOf } from '../presentational/storybook-react'
 import {
-  MainSelect, PasswordSet, SeedRestore, SeedShow, SeedSuccess, SeedVerify,
-  Splash, WalletNewAddress, WalletSyncing
+  MainSelect, PasswordRestore, PasswordSet, SeedRestore, SeedShow, SeedSuccess,
+  SeedVerify, Splash, WalletNewAddress, WalletSyncing
 } from './wallet-onboarding'
 import {
   ChannelCreate, ChannelDelete, ChannelDetails, Channels, ChannelsOpening, CLI,
@@ -36,6 +36,9 @@ storiesOf('Screens (Onboarding)')
   ))
   .add('SeedVerify', () => (
     <SeedVerify />
+  ))
+  .add('PasswordRestore', () => (
+    <PasswordRestore />
   ))
   .add('PasswordSet', () => (
     <PasswordSet />
