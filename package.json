@@ -27,5 +27,8 @@
   },
   "devDependencies": {
     "lerna": "^3.3.0"
+  },
+  "dependencies": {
+    "stripe": "^6.12.1"
   }
 }

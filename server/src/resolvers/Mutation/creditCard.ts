@@ -1,4 +1,4 @@
-import admin from 'firebase-admin'
+import * as admin from 'firebase-admin'
 import { ApolloError, ValidationError } from 'apollo-server-express'
 import { pubsub } from '../../'
 import * as jwt from 'jsonwebtoken'
@@ -8,9 +8,9 @@ import * as stripe from 'stripe'
 const stripeApi = stripe(config.stripeSecretKey);
 
 export const creditCard = {
-  async saveCreditCard(_: null, args: { username: string }, context) {
+  async saveCreditCard(_: null, args: { username: string, paymentInfo: any }, context) {
     try {
-      const { user } = context
+      // const { user } = context
       const { username } = args
       const userDoc = await admin
         .firestore()
@@ -18,34 +18,29 @@ export const creditCard = {
         .where('username', '==', username)
         .limit(1)
         .get()
-      let checkUser
+      let user
       userDoc.forEach(function (documentSnapshot) {
-        checkUser = documentSnapshot.data()
-        checkUser.id = documentSnapshot.id
+        user = documentSnapshot.data()
+        user.id = documentSnapshot.id
       }.bind(this))
 
-      if (checkUser) {
-        console.log('User ' + user.email + ' tried to claim ' + username + ', but it is taken')
-        return false
-      } else {
-        admin.firestore().doc(`users/${user.id}`).update({ username })  // TODO: add auth
-        console.log('User ' + user.email + ' successfully claimed username: ' + username)
-        return true
-      }
-      if (userDoc) {
+      if (user) {
         return new Promise((resolve, reject) => {
           return stripeApi.customers.create({
-            description: `Customer for ${userDoc.emailAddress}`,
-            source: customerPaymentInfo.tokenID,
-            email: userDoc.emailAddress
+            // TODO: check user emailAddress
+            description: `Customer for ${user.emailAddress}`,
+            // TODO: token from UI
+            source: paymentInfo.tokenID,
+            email: user.emailAddress
           }, async function (error, customer) {
+            let customerID
             if (error) {
               reject(error)
             }
             try {
               customerID = (customer && customer.id) || null
-              const res = customerID && await ctx.db.mutation.updateUser({
-                where: { id: userDoc.id },
+              const res = customerID && await context.db.mutation.updateUser({
+                where: { id: user.id },
                 data: {
                   thirdPartyAccounts: {
                     create: [{
@@ -60,27 +55,27 @@ export const creditCard = {
                   }
                 }
               }, `{
-                        id
-                        firstName
-                        lastName
-                        userType
-                        username
-                        emailAddress
-                        isAuthorized
-                        bio
-                        phone
-                        photo
-                        thirdPartyAccounts {
-                          id
-                          type
-                          referenceId
-                        }
-                        badges {
-                          id
-                          code
-                          name
-                        }
-                      }`)
+                id
+                firstName
+                lastName
+                userType
+                username
+                emailAddress
+                isAuthorized
+                bio
+                phone
+                photo
+                thirdPartyAccounts {
+                  id
+                  type
+                  referenceId
+                }
+                badges {
+                  id
+                  code
+                  name
+                }
+              }`)
               resolve(res)
             }
             catch (error) {
@@ -97,6 +92,7 @@ export const creditCard = {
       }
 
       console.log('User from context:', user)
+      return user;
     } catch (error) {
       throw new ApolloError(error)
     }
