@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Neon",
+    "slug": "neon",
+    "ignoreNodeModulesValidation": true,
+    "sdkVersion": "27.0.0",
+    "packagerOpts": {
+      "config": "rn-cli.config.js",
+      "projectRoots": "",
+      "sourceExts": ["ts", "tsx"],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    }
+  }
+}

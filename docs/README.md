@@ -19,6 +19,7 @@ Neon is a multi-blockchain wallet and tool for interacting with the Arcade ecosy
 11. [Integrate EvidentID](architecture/0011-integrate-evidentid.md)
 12. [Integrate Blockstack](architecture/0012-integrate-blockstack.md)
 13. [Integrate Matrix chat](architecture/0013-integrate-matrix-chat.md)
+14. [Integrate Solid](architecture/0014-integrate-solid.md)
 
 ### Planned features
 

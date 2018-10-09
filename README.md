@@ -38,7 +38,7 @@ We use the monorepo pattern with [Lerna](https://github.com/lerna/lerna#readme) 
 
 `cd desktop` (or other app folder)
 
-`yarn start`
+`yarn start` (mobile) or `yarn electron-dev` (desktop)
 
 ### License
 
