@@ -8,7 +8,7 @@ import { directiveResolvers } from '../resolvers/directives'
 export const schema = makeExecutableSchema({
   typeDefs: [
     Auth,
-    // UserThirdPartAccount,
+    UserThirdPartAccount,
     AuthenticatedUserPayload,
     Message,
     Mutation,

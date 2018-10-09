@@ -15,7 +15,7 @@ export const User = `
     username: String
     role: String
     bio: String
-    # thirdPartyAccounts: [UserThirdPartyAccount!]! @relation(name: "UserToUserThirdPartyAccount", onDelete: CASCADE)
+    thirdPartyAccounts: [UserThirdPartyAccount!]!
   }
 `
 
@@ -48,6 +48,11 @@ export const NewUserInput = `
 `
 
 export const UserThirdPartAccount = `
+  enum ThirdPartyAccount {
+    STRIPE,
+    EVIDENT
+  }
+
   type UserThirdPartyAccount {
     id: ID! @unique
     type: ThirdPartyAccount!

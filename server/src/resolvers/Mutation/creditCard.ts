@@ -8,10 +8,10 @@ import * as stripe from 'stripe'
 const stripeApi = stripe(config.stripeSecretKey);
 
 export const creditCard = {
-  async saveCreditCard(_: null, args: { username: string, paymentInfo: any }, context) {
+  async saveCreditCard(_: null, args: CustomerInfo, context) {
     try {
       // const { user } = context
-      const { username } = args
+      const { username, tokenID } = args
       const userDoc = await admin
         .firestore()
         .collection('users')
@@ -29,8 +29,7 @@ export const creditCard = {
           return stripeApi.customers.create({
             // TODO: check user emailAddress
             description: `Customer for ${user.emailAddress}`,
-            // TODO: token from UI
-            source: paymentInfo.tokenID,
+            source: tokenID,
             email: user.emailAddress
           }, async function (error, customer) {
             let customerID
@@ -56,24 +55,20 @@ export const creditCard = {
                 }
               }, `{
                 id
-                firstName
-                lastName
-                userType
-                username
-                emailAddress
-                isAuthorized
-                bio
-                phone
+                fbid
+                name
                 photo
+                email
+                link
+                firebaseId
+                providerId
+                username
+                role
+                bio
                 thirdPartyAccounts {
                   id
                   type
                   referenceId
-                }
-                badges {
-                  id
-                  code
-                  name
                 }
               }`)
               resolve(res)
@@ -90,9 +85,7 @@ export const creditCard = {
           });
         })
       }
-
-      console.log('User from context:', user)
-      return user;
+      return true;
     } catch (error) {
       throw new ApolloError(error)
     }

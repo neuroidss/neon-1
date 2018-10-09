@@ -3,10 +3,11 @@ export const Mutation = `
     addMessage(text: String!, roomName: String!, user: UserInput!): Message @isAuthenticated
     login(idToken: String!): AuthenticatedUserPayload!
     saveUsername(username: String!): Boolean @isAuthenticated
-    saveCreditCard(username: String!): Boolean
+    saveCreditCard(customerPayment: CustomerPaymentInfo!): Boolean! @isAuthenticated
   }
 
-  type CreditCard {
-    
+  input CustomerPaymentInfo {
+    username: String!
+    tokenID: String!
   }
 `
