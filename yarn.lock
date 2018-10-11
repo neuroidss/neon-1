@@ -15143,7 +15143,6 @@ strip-indent@^2.0.0:
 strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
-<<<<<<< HEAD
 
 stripe@^6.12.1:
   version "6.12.1"
@@ -15152,8 +15151,6 @@ stripe@^6.12.1:
     lodash.isplainobject "^4.0.6"
     qs "~6.5.1"
     safe-buffer "^5.1.1"
-=======
->>>>>>> master
 
 strong-log-transformer@^2.0.0:
   version "2.0.0"
