@@ -47,6 +47,7 @@ export const creditCard = {
                       referenceId: customerID
                     }]
                   },
+                  // Do we need it here? or this will happen separately from City app.
                   badges: {
                     connect: [{
                       code: 'PaymentVerified'
