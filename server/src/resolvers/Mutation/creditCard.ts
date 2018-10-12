@@ -4,6 +4,8 @@ import { pubsub } from '../../'
 import * as jwt from 'jsonwebtoken'
 import { config } from '../../authUtils'
 import * as stripe from 'stripe'
+import {creditCardQuery} from '../../constants'
+import { CustomerInfo, BadgeType, ThirdPartyAccountType } from '../../models';
 
 const stripeApi = stripe(config.stripeSecretKey);
 
@@ -27,7 +29,6 @@ export const creditCard = {
       if (user) {
         return new Promise((resolve, reject) => {
           return stripeApi.customers.create({
-            // TODO: check user emailAddress
             description: `Customer for ${user.emailAddress}`,
             source: tokenID,
             email: user.emailAddress
@@ -43,35 +44,18 @@ export const creditCard = {
                 data: {
                   thirdPartyAccounts: {
                     create: [{
-                      type: 'STRIPE',
+                      type: ThirdPartyAccountType.STRIPE,
                       referenceId: customerID
                     }]
                   },
                   // Do we need it here? or this will happen separately from City app.
                   badges: {
                     connect: [{
-                      code: 'PaymentVerified'
+                      code: BadgeType.PaymentVerified
                     }]
                   }
                 }
-              }, `{
-                id
-                fbid
-                name
-                photo
-                email
-                link
-                firebaseId
-                providerId
-                username
-                role
-                bio
-                thirdPartyAccounts {
-                  id
-                  type
-                  referenceId
-                }
-              }`)
+              }, creditCardQuery)
               resolve(res)
             }
             catch (error) {
