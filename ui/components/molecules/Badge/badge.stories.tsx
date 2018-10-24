@@ -3,13 +3,18 @@ import * as React from 'react'
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
 import { Badge } from './badge'
+import { Text } from '../../..';
 
 storiesOf('Badge')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)
-  .add('Style Presets', () => (
+  .add('Badge', () => (
     <Story>
-      <UseCase text="Primary" usage="The primary button.">
-        <Badge />
+      <UseCase text="Primary" usage="Badge with text.">
+        <Badge>
+          <Text>
+            Dummy Text
+          </Text>
+        </Badge>
       </UseCase>
     </Story>
   ))
