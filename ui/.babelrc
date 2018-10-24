@@ -8,7 +8,7 @@
         "extensions": ["web.js", ".js", ".jsx", ".ts", ".tsx"],
         "alias": {
           "^react-native$": "react-native-web"
-        },
+        }
       }
     ]
   ],

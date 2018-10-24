@@ -2,7 +2,7 @@ import * as React from 'react'
 // @ts-ignore
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
-import { Button } from './'
+import { Button } from './button'
 import { Text } from '../Text'
 
 storiesOf('Button')
