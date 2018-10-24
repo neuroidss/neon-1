@@ -42,7 +42,7 @@ const selfie = StyleSheet.create({
 export const Avatar = (props: any) => (
   <Container style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
     <View>
-      <Image style={{ width: '250px', height: '250px' }} source={{uri: ArcadeCityBG}} />
+      <Image source={{uri: ArcadeCityBG}} />
       <View style={avatarStyle.base}>
         <Image style={image.base} source={{uri: AvatarImg}} />
           <View style={selfie.base}>
