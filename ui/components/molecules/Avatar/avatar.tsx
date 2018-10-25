@@ -1,10 +1,11 @@
 /// <reference path="../../../index.d.ts" />
 
 import * as React from 'react'
-import { Container } from '../../atoms'
 import ArcadeCityBG from '../../../resources/images/city.jpg'
 import AvatarImg from '../../../resources/images/avatarImg.png'
 import { Image, StyleSheet, View } from 'react-native'
+import Container from '../../presentational/container';
+import {StyledImage} from '../../styled'
 
 const avatarStyle = StyleSheet.create({
   base: {
@@ -21,34 +22,24 @@ const avatarStyle = StyleSheet.create({
     right: '0',
     color: 'black'
   },
-  bgImage: { 
-    width: '250px', 
-    height: '250px' 
-  }
-})
-
-const image = StyleSheet.create({
-  base: {
-    width: 50,
-    height: 50,
-    maxWidth: 150,
-    maxHeight: 150,
-    borderRadius: 50,
-    WebkitBorderRadius: '50% !important',
-    MozBorderRadius: '50% !important',
-    border: '5px solid rgba(255,255,255,0.5)'
+  bgImage: {
+    width: '100%', 
+    height: '250px'
+  },
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   }
 })
 
 export const Avatar = (props: any) => (
-  <Container style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-    <View>
-      <Image style={avatarStyle.bgImage} source={{uri: ArcadeCityBG}} />
-      <View style={avatarStyle.base}>
-        <Image style={image.base} source={{uri: AvatarImg}} />
-          <View style={avatarStyle.selfie}>
-          </View>
-      </View>
+  <Container style={avatarStyle.container}>
+    <Image style={avatarStyle.bgImage} source={{uri: ArcadeCityBG}} />
+    <View style={avatarStyle.base}>
+      <StyledImage source={{uri: AvatarImg}} />
+        <View style={avatarStyle.selfie}>
+        </View>
     </View>
   </Container>
 )
