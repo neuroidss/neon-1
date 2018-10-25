@@ -7,9 +7,8 @@ interface RowProps {
 
 // TODO: should we include any theme color?
 export const Row = styled(View)`
-  font-weight: 'bold';
   ${(props: RowProps) => props.wrap ? 
-    css`flex-direction: 'wrap';`: 
-    css`flex-direction: 'row';`
+    css`flex-direction: wrap;`: 
+    css`flex-direction: row;`
   }
 `
