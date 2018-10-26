@@ -6,8 +6,8 @@ export const StyledImage = styled(Image)`
   height: 150px;
   max-width: 150px;
   max-height: 150px;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
   border: 5px solid rgba(255,255,255,0.5);
 `

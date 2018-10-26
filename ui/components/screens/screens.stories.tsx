@@ -12,10 +12,13 @@ import {
   WalletNewAddress,
   WalletSyncing
 } from './'
+import { EvidentDocumentVerification } from './EvidentDocumentVerification';
 
 const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'future',
 'trust', 'swift', 'pluck', 'easy', 'kite', 'measure', 'engage', 'settle', 'dog',
 'manager', 'tool', 'fan', 'neglect', 'conduct', 'blouse', 'stone', 'quit', 'cashew']
+
+const callback = (e) => console.log(e);
 
 storiesOf('Screens')
   .add('Splash', () => (
@@ -51,4 +54,20 @@ storiesOf('Screens')
   ))
   .add('WalletSyncing', () => (
     <WalletSyncing />
+  ))
+  .add('Document Verification', () => (
+    <EvidentDocumentVerification 
+      closeDocumentVerificationModal={callback}
+      disableBackFileInput={true}
+      disableFrontFileInput={true}
+      handleBackImgChange={callback}
+      handleFrontImgChange={callback}
+      handleSelfieImgChange={callback}
+      handleOpenAlert={callback}
+      onPaymentSelectionChange={callback}
+      paymentMethodSelection={[]}
+      language={'En'}
+      supportedIDFormats={''}
+      supportedSelfieFormats={''}
+      dropDownValue={'Passport'} />
   ))

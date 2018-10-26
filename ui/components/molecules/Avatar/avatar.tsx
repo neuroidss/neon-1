@@ -37,6 +37,7 @@ export const Avatar = (props: any) => (
   <Container style={avatarStyle.container}>
     <Image style={avatarStyle.bgImage} source={{uri: ArcadeCityBG}} />
     <View style={avatarStyle.base}>
+      {/* Use react-native Avatar component instead of Styled component */}
       <StyledImage source={{uri: AvatarImg}} />
         <View style={avatarStyle.selfie}>
         </View>
