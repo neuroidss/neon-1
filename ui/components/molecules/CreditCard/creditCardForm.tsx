@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { View } from 'react-native';
 import {CardNumberElement, CardExpiryElement, CardCVCElement, PostalCodeElement, injectStripe} from 'react-stripe-elements'
-import { Text, Button } from '../../atoms';
-import styled, {css} from 'styled-components'
+import { Button, Text } from '../../atoms';
+import {StyledTextInput, StyledText} from '../../styled'
 
 const stripeElementsPlaceholder = (placeholderColor) => {
   return {
@@ -16,32 +16,12 @@ const stripeElementsPlaceholder = (placeholderColor) => {
   }
 }
 
-interface TextProps{
-  card?: boolean
-  expiration?: boolean
-  cvc?: boolean
-  pin?: boolean
-}
-
-const StyledText = styled(Text)`
-      font-weight: 300;
-      letter-spacing: 0.025em;
-    ${(props: TextProps) => props.expiration && css`
-        width: 140px;
-    `}
-    ${(props: TextProps) => props.cvc && css`
-        width: 100px;
-        margin-left: 20px;
-    `}
-    ${(props: TextProps) => props.pin && css`
-        width: 130px;
-        margin-left: 20px;
-    `}
-`
-
-
 const CreditCardForm = () => (
     <View>
+        <StyledText>
+          Full Name
+          <StyledTextInput />
+        </StyledText>
         <StyledText>
           Card number
           <CardNumberElement

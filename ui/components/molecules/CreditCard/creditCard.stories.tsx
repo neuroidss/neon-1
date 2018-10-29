@@ -3,15 +3,15 @@ import * as React from 'react'
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
 import { Container } from '../../atoms';
-import {Stripe} from './stripe';
+import {CreditCard} from './creditCard';
 
-storiesOf('Stripe')
+storiesOf('Credit Card')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)
-  .add('Style Presets', () => (
+  .add('Stripe credit card payment', () => (
     <Story>
       <UseCase text="Primary" usage="The primary button.">
         <Container style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-          <Stripe />
+          <CreditCard />
         </Container>
       </UseCase>
     </Story>
