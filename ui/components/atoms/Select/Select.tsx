@@ -11,9 +11,7 @@ interface InputFieldProps extends PickerProps {
 
 const selectStyles = StyleSheet.create({
   select: {
-    alignSelf: 'stretch',
     textAlign: 'center',
-    padding: 5,
     color: color.neon,
     fontFamily: typography.primary,
     borderBottomWidth: StyleSheet.hairlineWidth
