@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { View } from 'react-native'
-import { Button, Container, Text, Select } from '../../atoms'
+import { Button, Container, Text, Select, FileInput } from '../../atoms'
 
 interface EvidentDocumentVerificationProps {
   documentMethod: any[]
@@ -11,15 +11,11 @@ interface EvidentDocumentVerificationProps {
   language: string
   supportedSelfieFormats: string
   onPaymentSelectionChange: ({language: string}) => void
-  handleFrontImgChange: (files: any[]) => void
-  handleSelfieImgChange: (files: any[]) => void
-  handleBackImgChange: (files: any[]) => void
-  handleOpenAlert: (files: any[]) => void
+  handleFrontImgChange: (file: any) => void
+  handleSelfieImgChange: (file: any) => void
+  handleBackImgChange: (file: any) => void
+  handleOpenAlert: (param: any) => void
   closeDocumentVerificationModal: (files: any[]) => void
-}
-
-const styles = {
-  background: 'whitesmoke'
 }
 
 export const EvidentDocumentVerification = (props: EvidentDocumentVerificationProps) => {
@@ -39,42 +35,33 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
         <Text>
           Front Image
         </Text>
-        <input
-          disabled={disableFrontFileInput}
-          style={styles}
-          onChange={(e: any) => handleFrontImgChange(e.target.files)}
-          type='file'
-          accept={supportedIDFormats}
+        <FileInput
           name='frontImage'
           id='frontImage'
-        />
+          accept={supportedIDFormats}
+          disabled={disableFrontFileInput}
+          onChange={e => handleFrontImgChange(e)} />
       </View>
       {dropDownValue === 'Passport' ? null : <View>
         <Text>
           Back Image
         </Text>
-        <input
-          style={styles}
-          disabled={disableBackFileInput}
-          onChange={(e: any) => handleBackImgChange(e.target.files)}
-          type='file'
-          accept={supportedIDFormats}
+        <FileInput
           name='backImage'
           id='backImage'
-        />
+          accept={supportedIDFormats}
+          disabled={disableBackFileInput}
+          onChange={e => handleBackImgChange(e)} />
       </View>}
       <Text>
           Selfie Image
       </Text>
-      <input
-        color='primary'
-        style={styles}
-        onChange={(e: any) => handleSelfieImgChange(e.target.files)}
-        type='file'
-        accept={supportedSelfieFormats}
-        name='selfieImage'
-        id='selfieImage'
-      />
+      <FileInput
+          name='selfieImage'
+          id='selfieImage'
+          accept={supportedSelfieFormats}
+          disabled={disableBackFileInput}
+          onChange={e => handleSelfieImgChange(e)} />
       <Text>
         (i). The selfie image you submit is compared to the photo on the ID document. Make sure your face is clearly visible.
       </Text>
