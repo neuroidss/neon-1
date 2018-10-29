@@ -18,6 +18,20 @@ const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'fu
 'trust', 'swift', 'pluck', 'easy', 'kite', 'measure', 'engage', 'settle', 'dog',
 'manager', 'tool', 'fan', 'neglect', 'conduct', 'blouse', 'stone', 'quit', 'cashew']
 
+export const documentMethod = [{
+  id: 1,
+  name: 'Drivers License'
+},
+{
+  id: 2,
+  name: 'Passport'
+}, {
+  id: 3,
+  name: 'SSN'
+}]
+
+let disabled = false;
+
 const callback = (e) => console.log(e);
 
 storiesOf('Screens')
@@ -58,16 +72,16 @@ storiesOf('Screens')
   .add('Document Verification', () => (
     <EvidentDocumentVerification 
       closeDocumentVerificationModal={callback}
-      disableBackFileInput={true}
-      disableFrontFileInput={true}
+      documentMethod={documentMethod}
+      disableBackFileInput={disabled}
+      disableFrontFileInput={disabled}
       handleBackImgChange={callback}
       handleFrontImgChange={callback}
       handleSelfieImgChange={callback}
       handleOpenAlert={callback}
       onPaymentSelectionChange={callback}
-      paymentMethodSelection={[]}
       language={'En'}
       supportedIDFormats={''}
       supportedSelfieFormats={''}
-      dropDownValue={'Passport'} />
+      dropDownValue={'Drivers License'} />
   ))

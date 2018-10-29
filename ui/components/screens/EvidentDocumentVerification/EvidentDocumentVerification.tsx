@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Picker, View } from 'react-native'
-import { Button, Container, Text } from '../../atoms'
+import { View } from 'react-native'
+import { Button, Container, Text, Select } from '../../atoms'
 
 interface EvidentDocumentVerificationProps {
-  paymentMethodSelection: any[]
+  documentMethod: any[]
   disableFrontFileInput: boolean
   supportedIDFormats: string
   dropDownValue: string
@@ -18,68 +18,64 @@ interface EvidentDocumentVerificationProps {
   closeDocumentVerificationModal: (files: any[]) => void
 }
 
+const styles = {
+  color: 'white'
+}
+
 export const EvidentDocumentVerification = (props: EvidentDocumentVerificationProps) => {
   const {
-    paymentMethodSelection, onPaymentSelectionChange, disableFrontFileInput,
+    documentMethod, onPaymentSelectionChange, disableFrontFileInput,
     handleFrontImgChange, supportedIDFormats, dropDownValue, handleSelfieImgChange,
     disableBackFileInput, handleBackImgChange, language, supportedSelfieFormats,
     handleOpenAlert, closeDocumentVerificationModal
   } = props
-  return <Container>
+  return <Container style={{ paddingHorizontal: '30%' }}>
+    <Select 
+      onValueChange={(itemValue, itemIndex) => onPaymentSelectionChange({language: itemValue})}
+      placeholder={'Select document method'}
+      options={documentMethod} selectedValue={language} />
     <View>
-      <Picker
-        selectedValue={language}
-        style={{ height: 50, width: 100 }}
-        onValueChange={(itemValue, itemIndex) => onPaymentSelectionChange({language: itemValue})}>
-        {
-            paymentMethodSelection.map((item) => {
-              return <Picker.Item key={item.id} label={item.name} value={item.name} />
-            })
-        }
-      </Picker>
-      <View>
-        <Text>
-          Front Image
-        </Text>
-        <input
-          disabled={disableFrontFileInput}
-          color='primary'
-          onChange={(e: any) => handleFrontImgChange(e.target.files)}
-          type='file'
-          accept={supportedIDFormats}
-          name='frontImage'
-          id='frontImage'
-        />
-      </View>
-      {dropDownValue === 'Passport' ? null : <View>
-        <Text>
-          Back Image
-        </Text>
-        <input
-          color='primary'
-          disabled={disableBackFileInput}
-          onChange={(e: any) => handleBackImgChange(e.target.files)}
-          type='file'
-          accept={supportedIDFormats}
-          name='backImage'
-          id='backImage'
-        />
-      </View>}
       <Text>
-          Selfie Image
+        Front Image
       </Text>
       <input
-        color='primary'
-        onChange={(e: any) => handleSelfieImgChange(e.target.files)}
+        disabled={disableFrontFileInput}
+        style={styles}
+        onChange={(e: any) => handleFrontImgChange(e.target.files)}
         type='file'
-        accept={supportedSelfieFormats}
-        name='selfieImage'
-        id='selfieImage'
+        accept={supportedIDFormats}
+        name='frontImage'
+        id='frontImage'
       />
-      <Text>
-        (i). The selfie image you submit is compared to the photo on the ID document. Make sure your face is clearly visible.
-      </Text>
     </View>
+    {dropDownValue === 'Passport' ? null : <View>
+      <Text>
+        Back Image
+      </Text>
+      <input
+        style={styles}
+        disabled={disableBackFileInput}
+        onChange={(e: any) => handleBackImgChange(e.target.files)}
+        type='file'
+        accept={supportedIDFormats}
+        name='backImage'
+        id='backImage'
+      />
+    </View>}
+    <Text>
+        Selfie Image
+    </Text>
+    <input
+      color='primary'
+      onChange={(e: any) => handleSelfieImgChange(e.target.files)}
+      type='file'
+      accept={supportedSelfieFormats}
+      name='selfieImage'
+      id='selfieImage'
+    />
+    <Text>
+      (i). The selfie image you submit is compared to the photo on the ID document. Make sure your face is clearly visible.
+    </Text>
     <Button
       preset="small"
       onPress={(e: any) => closeDocumentVerificationModal(e)}
