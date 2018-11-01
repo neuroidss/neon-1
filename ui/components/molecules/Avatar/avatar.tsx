@@ -1,6 +1,5 @@
-/* tslint:disable */
-/// <reference path="../../../index.d.ts" /> // eslint-disable-line rule1 rule2
-/* tslint:enable */
+// tslint:disable-next-line
+/// <reference path="../../../index.d.ts" />
 
 import * as React from 'react'
 import ArcadeCityBG from '../../../resources/images/city.jpg'
