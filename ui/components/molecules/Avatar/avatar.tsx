@@ -1,6 +1,3 @@
-// tslint:disable-next-line
-/// <reference path="../../../index.d.ts" />
-
 import * as React from 'react'
 import ArcadeCityBG from '../../../resources/images/city.jpg'
 import AvatarImg from '../../../resources/images/avatarImg.png'
