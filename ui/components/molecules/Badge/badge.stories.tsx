@@ -3,8 +3,8 @@ import * as React from 'react'
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
 import { Badge } from './badge'
-import { Text, Background } from '../../..';
-import { color } from '../../../theme';
+import { Text, Background } from '../../..'
+import { color } from '../../../theme'
 
 storiesOf('Badge')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)

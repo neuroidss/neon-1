@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Text } from '../../../atoms';
+import { Text } from '../../../atoms'
 
 interface TextProps {
     card?: boolean

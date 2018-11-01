@@ -2,8 +2,8 @@ import * as React from 'react'
 // @ts-ignore
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
-import { Container } from '../../atoms';
-import {PaymentScreen} from './paymentScreen';
+import { Container } from '../../atoms'
+import {PaymentScreen} from './paymentScreen'
 
 const state = {
     showCreditCardMode: true,

@@ -1,5 +1,5 @@
 import Styled from 'styled-components'
-import { TextInput } from '../../../atoms';
+import { TextInput } from '../../../atoms'
 
 export const StyledTextInput = Styled(TextInput)`
   width: 100%;

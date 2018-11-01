@@ -2,8 +2,8 @@ import * as React from 'react'
 // @ts-ignore
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
-import { Container } from '../../atoms';
-import {CreditCard} from './creditCard';
+import { Container } from '../../atoms'
+import {CreditCard} from './creditCard'
 
 storiesOf('Credit Card')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)

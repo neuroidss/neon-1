@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { View } from 'react-native';
+import { View } from 'react-native'
 import {CardNumberElement, CardExpiryElement, CardCVCElement, PostalCodeElement, injectStripe} from 'react-stripe-elements'
-import { Button, Text } from '../../atoms';
+import { Button, Text } from '../../atoms'
 import {StyledTextInput, StyledText} from '../../styled'
 
 const stripeElementsPlaceholder = (placeholderColor) => {

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { StyleSheet, Picker } from 'react-native'
 import { color, typography } from '../../../theme'
-import { PickerProps } from 'react-native';
+import { PickerProps } from 'react-native'
 
 interface InputFieldProps extends PickerProps {
   style?: any,

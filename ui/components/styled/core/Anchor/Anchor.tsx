@@ -2,7 +2,7 @@ import { View } from 'react-native'
 import styled, {css} from 'styled-components'
 
 interface AnchorProps {
-  underline: boolean;
+  underline: boolean
 }
 
 // TODO: should we include any theme color?

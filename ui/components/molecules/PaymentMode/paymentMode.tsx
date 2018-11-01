@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Container } from '../../atoms'
-import { Picker } from 'react-native';
+import { Picker } from 'react-native'
 
 export const PaymentMode = ({
     modeOfPayment,

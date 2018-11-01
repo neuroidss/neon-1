@@ -12,7 +12,7 @@ import {
   WalletNewAddress,
   WalletSyncing
 } from './'
-import { EvidentDocumentVerification } from './EvidentDocumentVerification';
+import { EvidentDocumentVerification } from './EvidentDocumentVerification'
 
 const mnemonic = ['empower', 'neglect', 'experience', 'elevator', 'entropy', 'future',
 'trust', 'swift', 'pluck', 'easy', 'kite', 'measure', 'engage', 'settle', 'dog',
@@ -30,9 +30,9 @@ export const documentMethod = [{
   name: 'SSN'
 }]
 
-let disabled = false;
+let disabled = false
 
-const callback = (e) => console.log(e);
+const callback = (e) => console.log(e)
 
 storiesOf('Screens')
   .add('Splash', () => (

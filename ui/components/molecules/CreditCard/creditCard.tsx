@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Container, Text } from '../../atoms'
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native'
 import {Elements, StripeProvider} from 'react-stripe-elements'
 import CreditCardForm from './creditCardForm'
 import '!style-loader!css-loader!./style.css'

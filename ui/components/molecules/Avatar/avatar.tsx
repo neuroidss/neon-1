@@ -1,10 +1,12 @@
-/// <reference path="../../../index.d.ts" />
+/* tslint:disable */
+/// <reference path="../../../index.d.ts" /> // eslint-disable-line rule1 rule2
+/* tslint:enable */
 
 import * as React from 'react'
 import ArcadeCityBG from '../../../resources/images/city.jpg'
 import AvatarImg from '../../../resources/images/avatarImg.png'
 import { Image, StyleSheet, View } from 'react-native'
-import Container from '../../presentational/container';
+import Container from '../../presentational/container'
 import {StyledImage} from '../../styled'
 
 const avatarStyle = StyleSheet.create({
@@ -39,8 +41,8 @@ export const Avatar = (props: any) => (
     <View style={avatarStyle.base}>
       {/* Use react-native Avatar component instead of Styled component */}
       <StyledImage source={{uri: AvatarImg}} />
-        <View style={avatarStyle.selfie}>
-        </View>
+        {/* <View style={avatarStyle.selfie}>
+        </View> */}
     </View>
   </Container>
 )

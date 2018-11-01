@@ -2,7 +2,7 @@ import { View } from 'react-native'
 import styled, {css} from 'styled-components'
 
 interface RowProps {
-  wrap: boolean;
+  wrap: boolean
 }
 
 // TODO: should we include any theme color?

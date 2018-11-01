@@ -3,7 +3,7 @@ import * as React from 'react'
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
 import { Avatar } from './avatar'
-import { Container } from '../../atoms';
+import { Container } from '../../atoms'
 
 storiesOf('Avatar')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)

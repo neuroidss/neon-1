@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Container } from '../../atoms'
 import '!style-loader!css-loader!./style.css'
 import {Stripe} from '../../organisms/Stripe'
-import { View } from 'react-native';
+import { View } from 'react-native'
 
 export const PaymentScreen = ({
     showCreditCardMode,
