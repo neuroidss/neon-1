@@ -1,11 +1,11 @@
-import { lastMessages, message } from './Query'
+import { lastMessages, message, user } from './Query'
 import { addMessage, login, saveUsername } from './Mutation'
 import { messageAdded } from './Subscription'
 
 export default {
   Query: {
     ...lastMessages,
-    ...message,
+    ...message
   },
   Mutation: {
     ...addMessage,

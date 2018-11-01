@@ -1,4 +1,4 @@
-import admin from 'firebase-admin'
+import * as admin from 'firebase-admin'
 import { ApolloServer, PubSub } from 'apollo-server-express'
 import { schema } from './schema'
 import { config } from './authUtils'

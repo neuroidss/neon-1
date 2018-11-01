@@ -1,4 +1,4 @@
-import admin from 'firebase-admin'
+import * as admin from 'firebase-admin'
 import { ValidationError } from 'apollo-server-express'
 import * as firebaseRaw from 'firebase'
 import * as jwt from 'jsonwebtoken'

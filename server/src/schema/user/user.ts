@@ -15,6 +15,7 @@ export const User = `
     username: String
     role: String
     bio: String
+    thirdPartyAccounts: [UserThirdPartyAccount!]!
   }
 `
 
@@ -43,5 +44,18 @@ export const NewUserInput = `
     name: String!
     photo: String!
     providerId: String!
+  }
+`
+
+export const UserThirdPartAccount = `
+  enum ThirdPartyAccount {
+    STRIPE,
+    EVIDENT
+  }
+
+  type UserThirdPartyAccount {
+    id: ID! @unique
+    type: ThirdPartyAccount!
+    referenceId: String!
   }
 `
