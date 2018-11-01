@@ -1,3 +1,4 @@
 export enum BadgeType {
-    PaymentVerified
+    PaymentVerified,
+    DocumentVerified
 }

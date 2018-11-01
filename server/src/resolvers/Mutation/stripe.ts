@@ -2,12 +2,12 @@ import * as admin from 'firebase-admin'
 import { ApolloError, ValidationError } from 'apollo-server-express'
 import { pubsub } from '../../'
 import * as jwt from 'jsonwebtoken'
-import { config } from '../../authUtils'
+import { stripeConfig } from '../../../config'
 import * as stripe from 'stripe'
 import {creditCardQuery} from '../../constants'
 import { CustomerInfo, BadgeType, ThirdPartyAccountType } from '../../models';
 
-const stripeApi = stripe(config.stripeSecretKey);
+const stripeApi = stripe(stripeConfig.stripeSecretKey);
 
 export const creditCard = {
   async saveCreditCard(_: null, args: CustomerInfo, context) {

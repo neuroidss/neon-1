@@ -1,3 +1,5 @@
 export * from './addMessage'
 export * from './login'
 export * from './saveUsername'
+export * from './evident'
+export * from './stripe'
