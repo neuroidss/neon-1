@@ -4,6 +4,10 @@ import './config'
 import './config/reactotron'
 import { setupRootStore } from './setup/setup-root-store'
 import { Router } from './Router'
+import { ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import {HttpLink} from 'apollo-link-http'
+import {InMemoryCache} from 'apollo-cache-inmemory'
 
 interface AppState {
   ready: boolean
@@ -38,10 +42,20 @@ class App extends React.Component<{}, AppState> {
       walletStore: store.walletStore,
       paymentStore: store.paymentStore
     }
-
+    const link = new HttpLink({
+      uri: 'http://localhost:4000/graphql',
+    })
+    
+    const cache = new InMemoryCache()
+    const client = new ApolloClient({
+      link,
+      cache
+    })
     return (
       <Provider {...injectableStores}>
-        <Router />
+        <ApolloProvider client={client}>
+          <Router />
+        </ApolloProvider>
       </Provider>
     )
   }

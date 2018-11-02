@@ -3,7 +3,7 @@ import * as React from 'react'
 import { storiesOf } from '../../presentational/storybook-react'
 import { Story, UseCase } from '../../presentational'
 import { Container } from '../../atoms'
-import {CreditCardScreen} from './CreditCardScreen'
+import {CreditCard} from './CreditCardScreen'
 
 const state = {
     showCreditCardMode: true,
@@ -17,6 +17,9 @@ const handleModeOfPayment = (value) => {
 const handleCancelPayment = () => {
   
 }
+const handleSubmitPayment = () => {
+  
+}
 
 storiesOf('Screens')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)
@@ -24,11 +27,12 @@ storiesOf('Screens')
     <Story>
       <UseCase text="Primary" usage="The primary button.">
         <Container style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-          <CreditCardScreen
+          <CreditCard
             showCreditCardMode={state.showCreditCardMode}
             modeOfPayment={state.modeOfPayment}
             handleModeOfPayment={handleModeOfPayment}
             handleCancelPayment={handleCancelPayment}
+            handleSubmitPayment={handleSubmitPayment}
           />
         </Container>
       </UseCase>

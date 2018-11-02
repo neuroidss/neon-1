@@ -16,11 +16,12 @@ const stripeElementsPlaceholder = (placeholderColor) => {
   }
 }
 
-const CreditCardForm = ({handleCancelPayment}) => (
+const CreditCardForm = ({handleCancelPayment, handleSubmitPayment, stripe}) => (
     <View>
+      <form onSubmit={(event) => { handleSubmitPayment(event, stripe) }}>
         <StyledText>
           Full Name
-          <StyledTextInput />
+          <StyledTextInput name='name' type='text' placeholder='Name on card' />
         </StyledText>
         <StyledText>
           Card number
@@ -54,11 +55,12 @@ const CreditCardForm = ({handleCancelPayment}) => (
             preset="secondary"
           />
           <Text>{' '}</Text>
-          <Button
-            text="Submit"
-            preset="primary"
+          <button
+            type="submit"
+            value="Submit"
           />
         </View>
+      </form>
     </View>
 )
 

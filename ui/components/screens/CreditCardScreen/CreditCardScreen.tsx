@@ -8,7 +8,8 @@ export const CreditCard = ({
     showCreditCardMode,
     modeOfPayment,
     handleModeOfPayment,
-    handleCancelPayment
+    handleCancelPayment,
+    handleSubmitPayment
   }) => (
   <Container>
     <View>
@@ -17,6 +18,7 @@ export const CreditCard = ({
         modeOfPayment={modeOfPayment}
         handleModeOfPayment={handleModeOfPayment}
         handleCancelPayment={handleCancelPayment}
+        handleSubmitPayment={handleSubmitPayment}
       />
     </View>
   </Container>

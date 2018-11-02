@@ -13,7 +13,7 @@ const cardStyle = StyleSheet.create({
   }
 })
 
-export const CreditCard = ({handleCancelPayment}) => (
+export const CreditCard = ({handleCancelPayment, handleSubmitPayment}) => (
   <Container>      
       <View style={cardStyle.base}>
         <Text>Credit Card Payment</Text>
@@ -24,6 +24,7 @@ export const CreditCard = ({handleCancelPayment}) => (
                 <StyledCard cardBody={true}>
                   <CreditCardForm
                     handleCancelPayment={handleCancelPayment}
+                    handleSubmitPayment={handleSubmitPayment}
                   />
                 </StyledCard>
               </StyledCard>
