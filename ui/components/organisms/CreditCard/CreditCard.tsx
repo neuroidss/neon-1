@@ -4,16 +4,17 @@ import '!style-loader!css-loader!./style.css'
 import { PaymentMode } from '../../molecules/PaymentMode'
 import { CreditCard } from '../../molecules/CreditCard'
 
-export const Stripe = ({
+export const CreditCardPayment = ({
     showCreditCardMode,
     modeOfPayment,
-    handleModeOfPayment
+    handleModeOfPayment,
+    handleCancelPayment
   }) => (
   <Container>
         <PaymentMode
           modeOfPayment={modeOfPayment}
           handleModeOfPayment={handleModeOfPayment}
         />
-        { showCreditCardMode && <CreditCard /> }
+        { showCreditCardMode && <CreditCard handleCancelPayment={handleCancelPayment}/> }
   </Container>
 )

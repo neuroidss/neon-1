@@ -35,7 +35,8 @@ class App extends React.Component<{}, AppState> {
       navStore: store.navStore,
       uiStore: store.uiStore,
       userStore: store.userStore,
-      walletStore: store.walletStore
+      walletStore: store.walletStore,
+      paymentStore: store.paymentStore
     }
 
     return (

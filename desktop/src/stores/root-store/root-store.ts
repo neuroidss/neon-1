@@ -6,6 +6,7 @@ import { UiStoreModel } from '../ui-store'
 import { UserStoreModel } from '../user-store'
 import { WalletStoreModel } from '../wallet-store'
 import { NavStoreModel } from '@arcadecity/neon-core'
+import { PaymentStoreModel } from '../payment-store'
 
 /**
  * An RootStore model.
@@ -20,7 +21,8 @@ export const RootStoreModel = types
     payLnStore: types.optional(PayLnStoreModel, {}),
     uiStore: types.optional(UiStoreModel, {}),
     userStore: types.optional(UserStoreModel, {}),
-    walletStore: types.optional(WalletStoreModel, WalletStoreModel.create({}))
+    walletStore: types.optional(WalletStoreModel, WalletStoreModel.create({})),
+    paymentStore: types.optional(PaymentStoreModel, {})
   })
 
 /**

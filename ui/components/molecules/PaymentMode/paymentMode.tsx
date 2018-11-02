@@ -9,10 +9,10 @@ export const PaymentMode = ({
   <Container>
       <Picker
         selectedValue={modeOfPayment}
-        style={{ height: 50, width: 100 }}
+        style={{ height: 30, width: '100%' }}
         onValueChange={(itemValue, itemIndex) => handleModeOfPayment(itemValue)}>
         <Picker.Item label="Select Payment Mode" value="" />
-        <Picker.Item label="Credit Card" value="credit_card" />
+        <Picker.Item label="Credit Card" value="CREDIT_CARD" />
       </Picker>
   </Container>
 )

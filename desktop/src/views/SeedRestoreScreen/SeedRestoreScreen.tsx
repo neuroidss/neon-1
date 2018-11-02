@@ -11,11 +11,15 @@ export interface SeedRestoreScreenProps {
 @observer
 export class SeedRestoreScreen extends React.Component<SeedRestoreScreenProps, {}> {
   public render() {
-    const { goBack } = this.props.navStore
+    const { 
+      navStore: { goBack }
+    }  = this.props
     return (
-      <SeedRestore
-        goBack={goBack}
-      />
+      <div>
+        <SeedRestore
+          goBack={goBack}
+        />
+      </div>
     )
   }
 }

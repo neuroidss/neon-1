@@ -16,7 +16,7 @@ const stripeElementsPlaceholder = (placeholderColor) => {
   }
 }
 
-const CreditCardForm = () => (
+const CreditCardForm = ({handleCancelPayment}) => (
     <View>
         <StyledText>
           Full Name
@@ -29,18 +29,18 @@ const CreditCardForm = () => (
           />
         </StyledText>
         <View style={{flexDirection: "row"}}>
-          <StyledText expiration>
+          <StyledText expiration={true}>
             Expiration date
             <CardExpiryElement
             />
           </StyledText>
-          <StyledText cvc>
+          <StyledText cvc={true}>
             CVC
             <CardCVCElement
               {...stripeElementsPlaceholder('transparent')}
             />
           </StyledText>
-          <StyledText pin>
+          <StyledText pin={true}>
             Postal code
             <PostalCodeElement
               {...stripeElementsPlaceholder('transparent')}
@@ -49,6 +49,7 @@ const CreditCardForm = () => (
         </View>
         <View style={{flex: 1, flexDirection: "row", justifyContent: 'space-between'}}>
           <Button
+            onPress={handleCancelPayment}
             text="Cancel"
             preset="secondary"
           />

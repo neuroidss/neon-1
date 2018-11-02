@@ -1,5 +1,5 @@
 import * as firebase from 'firebase'
-import { config } from './firebaseConfig'
+import { config } from '../../config'
 
 class Firebase {
   client: firebase.app.App
