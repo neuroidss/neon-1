@@ -20,6 +20,11 @@ export const StyledCard = Styled(View)`
   ${(props: CardProps) => props.cardBody && css`
     flex: 1 1 auto;
     padding: 1.25rem;
-    background: #f8f8ff;
+    background: black;
   `}
 `
+
+StyledCard.defaultProps = {
+  card: false,
+  cardBody: false,
+}

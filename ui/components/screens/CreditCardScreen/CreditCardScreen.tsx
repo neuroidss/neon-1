@@ -1,20 +1,22 @@
 import * as React from 'react'
 import { Container } from '../../atoms'
 import '!style-loader!css-loader!./style.css'
-import {Stripe} from '../../organisms/Stripe'
+import {CreditCardPayment} from '../../organisms/CreditCard'
 import { View } from 'react-native'
 
-export const PaymentScreen = ({
+export const CreditCard = ({
     showCreditCardMode,
     modeOfPayment,
-    handleModeOfPayment
+    handleModeOfPayment,
+    handleCancelPayment
   }) => (
   <Container>
     <View>
-      <Stripe
+      <CreditCardPayment
         showCreditCardMode={showCreditCardMode}
         modeOfPayment={modeOfPayment}
         handleModeOfPayment={handleModeOfPayment}
+        handleCancelPayment={handleCancelPayment}
       />
     </View>
   </Container>

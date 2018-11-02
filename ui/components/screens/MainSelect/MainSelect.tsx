@@ -4,6 +4,7 @@ import { Button, Container, Logo } from '../../atoms'
 interface MainSelectProps {
   navToCreateWallet: () => void
   navToRestoreWallet: () => void
+  navToPaymentScreen: () => void
 }
 
 export const MainSelect = (props: MainSelectProps) => (
@@ -18,6 +19,11 @@ export const MainSelect = (props: MainSelectProps) => (
       preset="small"
       text="Recover existing Lightning wallet"
       onPress={props.navToRestoreWallet}
+    />
+    <Button
+      preset="small"
+      text="Navigate to Payment Screen"
+      onPress={props.navToPaymentScreen}
     />
   </Container>
 )

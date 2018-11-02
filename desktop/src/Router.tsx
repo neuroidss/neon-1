@@ -4,7 +4,8 @@ import { NavStore } from '@arcadecity/neon-core'
 import {
   MainSelectScreen,
   SeedRestoreScreen,
-  SeedShowScreen
+  SeedShowScreen,
+  PaymentScreen
 } from './views'
 
 interface RouterProps {
@@ -24,6 +25,9 @@ export class Router extends React.Component<RouterProps, {}> {
         break
       case 'seedRestore':
         screenComponent = <SeedRestoreScreen />
+        break
+      case 'paymentScreen':
+        screenComponent = <PaymentScreen />
         break
       default:
         screenComponent = <MainSelectScreen />

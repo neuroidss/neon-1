@@ -7,7 +7,7 @@ import * as jwt from 'jsonwebtoken'
 /**
  * Initialize Firebase
  */
-var serviceAccount = require('../service-account.json')
+const serviceAccount = require('../service-account.json')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
