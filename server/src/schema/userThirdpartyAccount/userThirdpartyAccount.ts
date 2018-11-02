@@ -5,7 +5,7 @@ export const UserThirdPartAccount = `
   }
 
   type UserThirdPartyAccount {
-    id: ID! @unique
+    uid: ID! @unique
     type: ThirdPartyAccount!
     referenceId: String!
   }

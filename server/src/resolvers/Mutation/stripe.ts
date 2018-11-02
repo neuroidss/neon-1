@@ -4,19 +4,20 @@ import { pubsub } from '../../'
 import * as jwt from 'jsonwebtoken'
 import { stripeConfig } from '../../../config'
 import * as stripe from 'stripe'
-import {creditCardQuery} from '../../constants'
+import {userQuery} from '../../constants'
 import { CustomerInfo, BadgeType, ThirdPartyAccountType } from '../../models';
 
 const stripeApi = stripe(stripeConfig.stripeSecretKey);
 
 export const creditCard = {
-  async saveCreditCard(_: null, args: CustomerInfo, context) {
+  async savePaymentMethod(_: null, args: CustomerInfo, context) {
     try {
       // const { user } = context
       const { username, tokenID } = args
-      const userDoc = await admin
+      const userCollection = await admin
         .firestore()
         .collection('users')
+      const userDoc: any = userCollection
         .where('username', '==', username)
         .limit(1)
         .get()
@@ -39,23 +40,15 @@ export const creditCard = {
             }
             try {
               customerID = (customer && customer.id) || null
-              const res = customerID && await context.db.mutation.updateUser({
-                where: { id: user.id },
-                data: {
-                  thirdPartyAccounts: {
-                    create: [{
-                      type: ThirdPartyAccountType.STRIPE,
-                      referenceId: customerID
-                    }]
-                  },
-                  // Do we need it here? or this will happen separately from City app.
-                  badges: {
-                    connect: [{
-                      code: BadgeType.PaymentVerified
-                    }]
-                  }
-                }
-              }, creditCardQuery)
+              let res = userCollection
+                .doc(user.uid)
+                .set({
+                  // TODO: before updating, fetch older thirdparty accounts and extend it.
+                  thirdPartyAccounts: [{
+                    type: ThirdPartyAccountType.STRIPE,
+                    referenceId: customerID
+                  }] 
+                })
               resolve(res)
             }
             catch (error) {
