@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node lib/index.js",
+    "start": "yarn build && node lib/index.js",
     "serve": "rm -rf lib && yarn build && node lib/index.js"
   },
   "main": "lib/index.js",

@@ -1,4 +1,4 @@
-import { authUtils } from '../authUtils'
+import { authUtils } from '../../authUtils'
 
 export const directiveResolvers = {
   isAuthenticated: (next, source, args, context) => {

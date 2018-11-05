@@ -1,4 +1,4 @@
-import { pubsub } from '../../'
+import { pubsub } from '../../..'
 import { withFilter } from 'graphql-subscriptions'
 
 export const messageAdded = {

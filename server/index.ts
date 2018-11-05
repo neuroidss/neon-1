@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin'
 import { ApolloServer, PubSub } from 'apollo-server-express'
-import { schema } from './schema'
+import { schema } from './src/schema'
 import { config } from './authUtils'
 import * as jwt from 'jsonwebtoken'
 

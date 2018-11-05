@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin'
 import { ApolloError, ValidationError } from 'apollo-server-express'
-import { pubsub } from '../../'
+import { pubsub } from '../../..'
 import * as jwt from 'jsonwebtoken'
 import { stripeConfig } from '../../../config'
 import * as stripe from 'stripe'

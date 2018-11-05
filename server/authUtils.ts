@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken'
-import * as c from '../config'
+import * as c from './config'
 export const config = {
   appSecret: "arcade-city-secret-key-232412123",
   accessTokenExpiryTime: 24 * 60 * 60 * 1000,

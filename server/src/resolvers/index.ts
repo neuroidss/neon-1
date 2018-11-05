@@ -1,5 +1,5 @@
 import { lastMessages, message, user } from './Query'
-import { addMessage, login, saveUsername } from './Mutation'
+import { creditCard, login, saveUsername } from './Mutation'
 import { messageAdded } from './Subscription'
 
 export default {
@@ -8,7 +8,7 @@ export default {
     ...message
   },
   Mutation: {
-    ...addMessage,
+    ...creditCard,
     ...login,
     ...saveUsername
   },

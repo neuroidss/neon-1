@@ -1,8 +1,8 @@
 import * as admin from 'firebase-admin'
 import { ApolloError, ValidationError } from 'apollo-server-express'
-import { pubsub } from '../../'
+import { pubsub } from '../../..'
 import * as jwt from 'jsonwebtoken'
-import { config } from '../../authUtils'
+import { config } from '../../../authUtils'
 
 export const saveUsername = {
   async saveUsername(_: null, args: { username: string }, context) {

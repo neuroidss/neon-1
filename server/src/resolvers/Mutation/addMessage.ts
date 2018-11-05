@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin'
 import { ApolloError, ValidationError } from 'apollo-server-express'
-import { pubsub } from '../../'
+import { pubsub } from '../../..'
 
 export const addMessage = {
   async addMessage(_: null, args: { id: string, text: string, timestamp: number, user: any, roomName: string }) {
