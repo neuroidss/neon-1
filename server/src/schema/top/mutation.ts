@@ -4,7 +4,7 @@ export const Mutation = `
     tokenID: String!
   }  
   type Mutation {
-    savePaymentMethod(customerInfo: CustomerPaymentInfo!): User! @isAuthenticated
+    savePaymentMethod(customerInfo: CustomerPaymentInfo!): Boolean @isAuthenticated
     login(idToken: String!): AuthenticatedUserPayload!
     saveUsername(username: String!): Boolean @isAuthenticated
   }

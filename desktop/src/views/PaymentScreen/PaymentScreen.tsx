@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { PaymentStore } from '../../stores/payment-store'
 import { NavStore } from '@arcadecity/neon-core'
 import { CreditCard } from '@arcadecity/neon-ui'
-import { compose, graphql } from 'react-apollo'
+import { Mutation } from 'react-apollo'
 import {PaymentMutation} from '@arcadecity/neon-ui/graphql/stripe/paymentMethodMutation'
 
 export interface PaymentScreenProps {
@@ -13,7 +13,7 @@ export interface PaymentScreenProps {
 
 @inject('paymentStore', 'navStore')
 @observer
-class PaymentScreen extends React.Component<PaymentScreenProps, {}> {
+export class PaymentScreen extends React.Component<PaymentScreenProps, {}> {
   public render() {
     const {
       navStore: { goBack },
@@ -22,20 +22,18 @@ class PaymentScreen extends React.Component<PaymentScreenProps, {}> {
     }  = this.props
     return (
       <div>
-        <CreditCard
-          showCreditCardMode={showCreditCardMode}
-          modeOfPayment={modeOfPayment}
-          handleModeOfPayment={handleModeOfPayment}
-          handleCancelPayment={() => handleCancelPayment(goBack)}
-          handleSubmitPayment={(event, stripe) => handleSubmitPayment(event, stripe, goBack, PaymentMutation)}
-        />
+        <Mutation mutation={PaymentMutation}>
+            {paymentMutation => (
+              <CreditCard
+                showCreditCardMode={showCreditCardMode}
+                modeOfPayment={modeOfPayment}
+                handleModeOfPayment={handleModeOfPayment}
+                handleCancelPayment={() => handleCancelPayment(goBack)}
+                handleSubmitPayment={(event, stripe) => handleSubmitPayment(event, stripe, goBack, paymentMutation)}
+              />
+            )}
+        </Mutation>
       </div>
     )
   }
 }
-
-export default compose(
-    graphql(PaymentMutation, {
-        name: 'PaymentMutation'
-    })
-)(PaymentScreen)

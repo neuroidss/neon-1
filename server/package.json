@@ -4,8 +4,8 @@
   "description": "Neon server",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "start": "yarn build && node lib/index.js",
+    "build": "yarn tsc && node lib/index.js",
+    "start": "nodemon --watch ./ --exec yarn build --verbose -e ts",
     "serve": "rm -rf lib && yarn build && node lib/index.js"
   },
   "main": "lib/index.js",

@@ -1,2 +1,1 @@
-import PaymentScreen from './PaymentScreen'
-export default PaymentScreen
+export * from './PaymentScreen'

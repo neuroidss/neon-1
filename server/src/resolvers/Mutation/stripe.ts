@@ -12,20 +12,22 @@ const stripeApi = stripe(stripeConfig.stripeSecretKey);
 export const creditCard = {
   async savePaymentMethod(_: null, args: CustomerInfo, context) {
     try {
+      console.log(args)
       // const { user } = context
-      const { username, tokenID } = args
+      // @ts-ignore
+      const { customerInfo: {username, tokenID} } = args
       const userCollection = await admin
         .firestore()
         .collection('users')
-      const userDoc: any = userCollection
+      const userDoc: any = await userCollection
         .where('username', '==', username)
         .limit(1)
         .get()
       let user
       userDoc.forEach(function (documentSnapshot) {
-        user = documentSnapshot.data()
-        user.id = documentSnapshot.id
-      }.bind(this))
+          user = documentSnapshot.data()
+          user.id = documentSnapshot.id
+        }.bind(this))
 
       if (user) {
         return new Promise((resolve, reject) => {
@@ -40,9 +42,9 @@ export const creditCard = {
             }
             try {
               customerID = (customer && customer.id) || null
-              let res = userCollection
-                .doc(user.uid)
-                .set({
+              let res = await userCollection
+                .doc(user.id)
+                .update({
                   // TODO: before updating, fetch older thirdparty accounts and extend it.
                   thirdPartyAccounts: [{
                     type: ThirdPartyAccountType.STRIPE,

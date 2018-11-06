@@ -1,6 +1,7 @@
-import { types } from 'mobx-state-tree'
+import { types, flow } from 'mobx-state-tree'
+// import { graphql } from 'react-apollo';
 // import * as actions from './nav.actions'
-
+// import {PaymentMutation} from '@arcadecity/neon-ui/graphql/stripe/paymentMethodMutation'
 /**
  * Handles navigation state
  */
@@ -10,8 +11,9 @@ export const PaymentStoreModel = types
     showCreditCardMode: types.optional(types.boolean, false),
     modeOfPayment: types.optional(types.string, '')
   })
-  .actions(self => ({
-    handleModeOfPayment (value: string) {
+  .actions(self => {
+    const actions = {
+    handleModeOfPayment(value: string) {
       switch (value) {
         case 'CREDIT_CARD':
           self.showCreditCardMode = true
@@ -22,59 +24,35 @@ export const PaymentStoreModel = types
           self.modeOfPayment = value
       }
     },
-    handleCancelPayment (goBack: any) {
+    handleCancelPayment(goBack: any) {
       self.showCreditCardMode = false
       self.modeOfPayment = ''
       goBack()
     },
-    async handleSubmitPayment (event: any, stripe: any, goBack: any) {
-      try{
-      event.preventDefault()
-      const userName = event.target.name.value
-      // !userName && toastMessage('ERROR', CONSTANTS.STRIPE.ERROR_MESSAGES.NAME_ERROR)
-      console.log(stripe)
-      stripe.createToken({ name: userName }).then(async ({ error, token }) => {
-      const cardToken = token && token.id
-      const card = token && token.card
-      // const { PaymentMutation, SaveUserMutation } = this.props
-      // error && toastMessage('ERROR', error.message)
-      if (card) {
-        if (!card.address_zip) {
-          // toastMessage('ERROR', CONSTANTS.STRIPE.ERROR_MESSAGES.POSTAL_CODE_ERROR)
-          return
-        }
-      }
-      if (cardToken) {
-        // PaymentMutation({
-        //   variables: {
-        //     customerPaymentInfo: {
-        //       // username: this.props.userDetails.username,
-        //       tokenID: cardToken
-        //     }
-        //   }
-        // }).then(async (response) => {
-        //   if (response && response.data &&
-        //     response.data.addCustomerPaymentInfo &&
-        //     response.data.addCustomerPaymentInfo.thirdPartyAccounts &&
-        //     response.data.addCustomerPaymentInfo.thirdPartyAccounts.length) {
-        //     const result = response.data.addCustomerPaymentInfo
-        //     await SaveUserMutation({
-        //       variables: {
-        //         user: {...result}
-        //       }
-        //     })
-        //     // toastMessage('SUCCESS', CONSTANTS.STRIPE.SUCCESS_MESSAGES.PAYMENT_SUCCESS)
-        //   }
-        // })
-      }
-    })
-    } finally {
-      self.showCreditCardMode = false
-      self.modeOfPayment = ''
-      goBack()
+    handleSubmitPayment: flow(function* handleSubmitPayment(event: any, stripe: any, goBack: any, PaymentMutation?: any) {          
+        event.preventDefault() 
+        const userName = event.target.name.value
+        const response = yield stripe.createToken({ name: userName })
+          const token = response.token
+          const cardToken = token && token.id          
+          if (cardToken) {
+            const paymentResult = yield PaymentMutation({
+              variables: {
+                customerInfo: {
+                  username: 'nitishkohade',
+                  tokenID: cardToken
+                }
+              }
+            })
+            const isCardSaved = (paymentResult.data && paymentResult.data.savePaymentMethod) || false
+            if (isCardSaved) {
+              actions.handleCancelPayment(goBack)
+            }
+          }          
+      })
     }
-    }
-  }))
+    return actions
+  })
 
 /**
  * An instance of a PaymentStore.

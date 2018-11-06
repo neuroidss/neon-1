@@ -4,9 +4,9 @@ import { NavStore } from '@arcadecity/neon-core'
 import {
   MainSelectScreen,
   SeedRestoreScreen,
-  SeedShowScreen  
+  SeedShowScreen,
+  PaymentScreen
 } from './views'
-import PaymentScreen from './views'
 
 interface RouterProps {
   navStore?: NavStore
