@@ -3,6 +3,7 @@ import resolvers from '../resolvers'
 import { Mutation, Query, Subscription } from './top'
 import { Auth, AuthenticatedUserPayload, NewUserInput, User, UserInput } from './user'
 import { Message } from './chat'
+import { Evident } from './evident'
 import { directiveResolvers } from '../resolvers/directives'
 import { UserThirdPartAccount } from './userThirdpartyAccount';
 
