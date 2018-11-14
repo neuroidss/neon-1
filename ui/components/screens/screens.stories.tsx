@@ -40,6 +40,7 @@ storiesOf('Screens')
   ))
   .add('MainSelect', () => (
     <MainSelect
+      navToPaymentScreen={() => alert('Nav to Payment Screen')}
       navToCreateWallet={() => alert('Nav to seedShow')}
       navToRestoreWallet={() => alert('Nav to seedRestore')}
     />

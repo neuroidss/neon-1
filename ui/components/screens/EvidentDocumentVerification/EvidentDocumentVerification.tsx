@@ -18,6 +18,13 @@ interface EvidentDocumentVerificationProps {
   closeDocumentVerificationModal: (files: any[]) => void
 }
 
+const styles = {
+  select: {
+    height: 40,
+    maxHeight: 40
+  }
+};
+
 export const EvidentDocumentVerification = (props: EvidentDocumentVerificationProps) => {
   const {
     documentMethod, onPaymentSelectionChange, disableFrontFileInput,
@@ -27,7 +34,8 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
   } = props
   return <Container style={{ paddingHorizontal: '30%' }}>
     <View>
-      <Select 
+      <Select
+        style={styles.select}
         onValueChange={(itemValue, itemIndex) => onPaymentSelectionChange({language: itemValue})}
         placeholder={'Select document method'}
         options={documentMethod} selectedValue={language} />

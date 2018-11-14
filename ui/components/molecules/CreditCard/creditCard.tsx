@@ -13,7 +13,7 @@ const cardStyle = StyleSheet.create({
   }
 })
 
-export const CreditCard = ({handleCancelPayment, handleSubmitPayment}) => (
+export const CreditCard = ({handleCancelPayment, handleSubmitPayment}: any) => (
   <Container>      
       <View style={cardStyle.base}>
         <Text>Credit Card Payment</Text>

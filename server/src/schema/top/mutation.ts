@@ -12,6 +12,7 @@ export const Mutation = `
   }
   type Mutation {
     savePaymentMethod(customerInfo: CustomerPaymentInfo!): Boolean @isAuthenticated
+    submitDataToEvidentID(idToken: String!, documentVerificationInput: DocumentVerificationInput): User @isAuthenticated
     login(idToken: String!): AuthenticatedUserPayload! @isAuthenticated
     saveUsername(username: String!): Boolean @isAuthenticated
     register(registerInfo: RegisterInfo!): AuthenticatedUserPayload! @isAuthenticated

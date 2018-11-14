@@ -26,7 +26,7 @@
     "cors": "^2.8.4",
     "electron-is-dev": "^0.3.0",
     "express": "^4.16.3",
-    "grpc": "^1.15.1",
+    "grpc": "^1.16.0",
     "mobx": "^4.1.0",
     "mobx-react": "^5.2.8",
     "mobx-state-tree": "^2.0.2",

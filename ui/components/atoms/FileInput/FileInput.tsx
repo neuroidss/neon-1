@@ -12,7 +12,8 @@ interface InputFieldProps extends TextInputProps {
 
 const fileInputStyles = {
   fileInput: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    padding: 10
   }
 }
 
