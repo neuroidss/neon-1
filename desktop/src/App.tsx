@@ -40,7 +40,8 @@ class App extends React.Component<{}, AppState> {
       uiStore: store.uiStore,
       userStore: store.userStore,
       walletStore: store.walletStore,
-      paymentStore: store.paymentStore
+      paymentStore: store.paymentStore,
+      documentVerificationStore: store.documentVerificationStore
     }
     const link = new HttpLink({
       uri: 'http://localhost:4000/graphql',
