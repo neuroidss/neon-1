@@ -13,6 +13,7 @@ export const schema = makeExecutableSchema({
     UserThirdPartAccount,
     AuthenticatedUserPayload,
     Message,
+    Evident,
     Mutation,
     NewUserInput,
     Subscription,

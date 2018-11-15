@@ -43,6 +43,7 @@ storiesOf('Screens')
       navToPaymentScreen={() => alert('Nav to Payment Screen')}
       navToCreateWallet={() => alert('Nav to seedShow')}
       navToRestoreWallet={() => alert('Nav to seedRestore')}
+      navToDocumentScreen={() => alert('Nav to Document Screen')}
     />
   ))
   .add('SeedRestore', () => (

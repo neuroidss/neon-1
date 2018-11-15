@@ -5,6 +5,7 @@ interface MainSelectProps {
   navToCreateWallet: () => void
   navToRestoreWallet: () => void
   navToPaymentScreen: () => void
+  navToDocumentScreen: () => void
 }
 
 export const MainSelect = (props: MainSelectProps) => (
@@ -24,6 +25,11 @@ export const MainSelect = (props: MainSelectProps) => (
       preset="small"
       text="Navigate to Payment Screen"
       onPress={props.navToPaymentScreen}
+    />
+    <Button
+      preset="small"
+      text="Navigate to Document Screen"
+      onPress={props.navToDocumentScreen}
     />
   </Container>
 )

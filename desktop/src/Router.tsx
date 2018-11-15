@@ -5,7 +5,8 @@ import {
   MainSelectScreen,
   SeedRestoreScreen,
   SeedShowScreen,
-  PaymentScreen
+  PaymentScreen,
+  DocumentVerification
 } from './views'
 
 interface RouterProps {
@@ -28,6 +29,9 @@ export class Router extends React.Component<RouterProps, {}> {
         break
       case 'paymentScreen':
         screenComponent = <PaymentScreen />
+        break
+      case 'documentScreen':
+        screenComponent = <DocumentVerification />
         break
       default:
         screenComponent = <MainSelectScreen />

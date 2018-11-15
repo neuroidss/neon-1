@@ -25,7 +25,7 @@ export const DocumentVerificationStoreModel = types
   })
   .actions(self => {
     const actions = {
-      onPaymentSelectionChange: ({language: string}) => {
+      onPaymentSelectionChange: (language: string) => {
 
       },
       handleFrontImgChange: (file: any) => {
@@ -43,7 +43,7 @@ export const DocumentVerificationStoreModel = types
       closeDocumentVerificationModal: (files: any[]) => {
 
       }
-    };
+    }
     return actions
   })
 

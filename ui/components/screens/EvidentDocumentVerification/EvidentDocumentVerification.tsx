@@ -10,7 +10,7 @@ interface EvidentDocumentVerificationProps {
   disableBackFileInput: boolean
   language: string
   supportedSelfieFormats: string
-  onPaymentSelectionChange: ({language: string}) => void
+  onPaymentSelectionChange: (language: string) => void
   handleFrontImgChange: (file: any) => void
   handleSelfieImgChange: (file: any) => void
   handleBackImgChange: (file: any) => void
@@ -23,7 +23,7 @@ const styles = {
     height: 40,
     maxHeight: 40
   }
-};
+}
 
 export const EvidentDocumentVerification = (props: EvidentDocumentVerificationProps) => {
   const {
@@ -36,7 +36,7 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
     <View>
       <Select
         style={styles.select}
-        onValueChange={(itemValue, itemIndex) => onPaymentSelectionChange({language: itemValue})}
+        onValueChange={(itemValue, itemIndex) => onPaymentSelectionChange(itemValue)}
         placeholder={'Select document method'}
         options={documentMethod} selectedValue={language} />
       <View>
@@ -79,7 +79,7 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
         preset="small"
         onPress={(e: any) => closeDocumentVerificationModal(e)}
         text={'Cancel'} />
-      <Text> </Text>
+      <Text />
       <Button
         preset="small"
         onPress={(e: any) => handleOpenAlert(e)}
