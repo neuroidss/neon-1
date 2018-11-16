@@ -9,7 +9,8 @@ export const PaymentStoreModel = types
   .model('PaymentStore')
   .props({
     showCreditCardMode: types.optional(types.boolean, false),
-    modeOfPayment: types.optional(types.string, '')
+    modeOfPayment: types.optional(types.string, ''),
+    nameOnCreditCard: types.optional(types.string, '')
   })
   .actions(self => {
     const actions = {
@@ -24,15 +25,16 @@ export const PaymentStoreModel = types
           self.modeOfPayment = value
       }
     },
+    handlePaymentInfo(value: any) {
+      self.nameOnCreditCard = value.target.value
+    },
     handleCancelPayment(goBack: any) {
       self.showCreditCardMode = false
       self.modeOfPayment = ''
       goBack()
     },
-    handleSubmitPayment: flow(function* handleSubmitPayment(event: any, stripe: any, goBack: any, PaymentMutation?: any) {          
-        event.preventDefault() 
-        const userName = event.target.name.value
-        const response = yield stripe.createToken({ name: userName })
+    handleSubmitPayment: flow(function* handleSubmitPayment(stripe: any, goBack: any, PaymentMutation?: any) {          
+        const response = yield stripe.createToken({ name: self.nameOnCreditCard })
           const token = response.token
           const cardToken = token && token.id          
           if (cardToken) {

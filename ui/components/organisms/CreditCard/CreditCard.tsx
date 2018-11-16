@@ -9,7 +9,8 @@ export const CreditCardPayment = ({
     modeOfPayment,
     handleModeOfPayment,
     handleCancelPayment,
-    handleSubmitPayment
+    handleSubmitPayment,
+    handlePaymentInfo
   }) => (
   <Container>
         <PaymentMode
@@ -20,6 +21,7 @@ export const CreditCardPayment = ({
           <CreditCard
             handleCancelPayment={handleCancelPayment}
             handleSubmitPayment={handleSubmitPayment}
+            handlePaymentInfo={handlePaymentInfo}
           />
         }
   </Container>

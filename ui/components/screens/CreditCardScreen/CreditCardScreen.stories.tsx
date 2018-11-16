@@ -20,6 +20,9 @@ const handleCancelPayment = () => {
 const handleSubmitPayment = () => {
   
 }
+const handlePaymentInfo = () => {
+  
+}
 
 storiesOf('Screens')
   // .addDecorator(fn => <StoryScreen text="Button">{fn()}</StoryScreen>)
@@ -33,6 +36,7 @@ storiesOf('Screens')
             handleModeOfPayment={handleModeOfPayment}
             handleCancelPayment={handleCancelPayment}
             handleSubmitPayment={handleSubmitPayment}
+            handlePaymentInfo={handlePaymentInfo}
           />
         </Container>
       </UseCase>

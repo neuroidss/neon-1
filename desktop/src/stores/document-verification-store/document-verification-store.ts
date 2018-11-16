@@ -21,7 +21,7 @@ export const DocumentVerificationStoreModel = types
     disableBackFileInput: types.optional(types.boolean, false),
     language: types.optional(types.string, ''),
     supportedSelfieFormats: types.optional(types.string, ''),
-    
+    // uploadedData: types.optional(types.map, {})
   })
   .actions(self => {
     const actions = {

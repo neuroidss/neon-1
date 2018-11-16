@@ -18,7 +18,7 @@ export class PaymentScreen extends React.Component<PaymentScreenProps, {}> {
     const {
       navStore: { goBack },
       // @ts-ignore
-      paymentStore: { showCreditCardMode, modeOfPayment, handleModeOfPayment, handleCancelPayment, handleSubmitPayment } 
+      paymentStore: { showCreditCardMode, modeOfPayment, handleModeOfPayment, handlePaymentInfo, handleCancelPayment, handleSubmitPayment } 
     }  = this.props
     return (
       <div>
@@ -26,10 +26,11 @@ export class PaymentScreen extends React.Component<PaymentScreenProps, {}> {
             {paymentMutation => (
               <CreditCard
                 showCreditCardMode={showCreditCardMode}
+                handlePaymentInfo={handlePaymentInfo}
                 modeOfPayment={modeOfPayment}
                 handleModeOfPayment={handleModeOfPayment}
                 handleCancelPayment={() => handleCancelPayment(goBack)}
-                handleSubmitPayment={(event, stripe) => handleSubmitPayment(event, stripe, goBack, paymentMutation)}
+                handleSubmitPayment={(stripe) => handleSubmitPayment(stripe, goBack, paymentMutation)}
               />
             )}
         </Mutation>
