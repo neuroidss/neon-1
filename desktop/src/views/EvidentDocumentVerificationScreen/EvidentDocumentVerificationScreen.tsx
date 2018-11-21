@@ -29,7 +29,7 @@ const callback = (e) => console.log(e)
 
 @inject('documentVerificationStore', 'navStore')
 @observer
-export class DocumentVerification extends React.Component<DocumentVerificationProps, {}> {
+export class EvidentDocumentVerificationScreen extends React.Component<DocumentVerificationProps, {}> {
   public render() {
     const {
       // @ts-ignore

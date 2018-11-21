@@ -79,7 +79,7 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
         preset="small"
         onPress={(e: any) => closeDocumentVerificationModal(e)}
         text={'Cancel'} />
-      <Text />
+      <Text>{' '}</Text>
       <Button
         preset="small"
         onPress={(e: any) => handleOpenAlert(e)}
