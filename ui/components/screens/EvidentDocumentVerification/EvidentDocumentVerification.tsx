@@ -29,7 +29,7 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
   const {
     documentMethod, onPaymentSelectionChange, disableFrontFileInput,
     handleFrontImgChange, supportedIDFormats, dropDownValue, handleSelfieImgChange,
-    disableBackFileInput, handleBackImgChange, language, supportedSelfieFormats,
+    disableBackFileInput, handleBackImgChange, supportedSelfieFormats,
     handleOpenAlert, closeDocumentVerificationModal
   } = props
   return <Container style={{ paddingHorizontal: '30%' }}>
@@ -38,7 +38,9 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
         style={styles.select}
         onValueChange={(itemValue, itemIndex) => onPaymentSelectionChange(itemValue)}
         placeholder={'Select document method'}
-        options={documentMethod} selectedValue={language} />
+        options={documentMethod} selectedValue={dropDownValue} />
+    </View>
+    {dropDownValue ? <View key={dropDownValue}>
       <View>
         <Text>
           Front Image
@@ -61,29 +63,31 @@ export const EvidentDocumentVerification = (props: EvidentDocumentVerificationPr
           disabled={disableBackFileInput}
           onChange={e => handleBackImgChange(e)} />
       </View>}
-      <Text>
-          Selfie Image
-      </Text>
-      <FileInput
-          name='selfieImage'
-          id='selfieImage'
-          accept={supportedSelfieFormats}
-          disabled={disableBackFileInput}
-          onChange={e => handleSelfieImgChange(e)} />
+      <View>
+        <Text>
+            Selfie Image
+        </Text>
+        <FileInput
+            name='selfieImage'
+            id='selfieImage'
+            accept={supportedSelfieFormats}
+            disabled={disableBackFileInput}
+            onChange={e => handleSelfieImgChange(e)} />
+      </View>
       <Text>
         (i). The selfie image you submit is compared to the photo on the ID document. Make sure your face is clearly visible.
       </Text>
-    </View>
-    <View style={{flexDirection: "row", justifyContent: 'space-between'}}>
-      <Button
-        preset="small"
-        onPress={(e: any) => closeDocumentVerificationModal(e)}
-        text={'Cancel'} />
-      <Text>{' '}</Text>
-      <Button
-        preset="small"
-        onPress={(e: any) => handleOpenAlert(e)}
-        text={'Submit'} />
-    </View>
+      <View style={{flexDirection: "row", justifyContent: 'space-between'}}>
+        <Button
+          preset="small"
+          onPress={(e: any) => closeDocumentVerificationModal(e)}
+          text={'Cancel'} />
+        <Text>{' '}</Text>
+        <Button
+          preset="small"
+          onPress={(e: any) => handleOpenAlert(e)}
+          text={'Submit'} />
+      </View>
+    </View>: null}
   </Container>
 }

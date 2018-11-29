@@ -3,13 +3,22 @@ import { onPaymentSelectionChange, handleBackImgChange, handleFrontImgChange, ha
 // import { graphql } from 'react-apollo';
 // import * as actions from './nav.actions'
 // import {PaymentMutation} from '@arcadecity/neon-ui/graphql/stripe/paymentMethodMutation'
-/**
- * Handles navigation state
- */
 
 const Payment = types.model({
   id: types.string,
   type: types.string
+})
+
+const UploadData = types.model({
+  id_type: types.string,
+  selfieImageData: types.string,
+  frontImageData: types.string,
+  backImageData: types.string,
+  selfieImageType: types.string,
+  selfieImageDataSize: types.string,
+  frontImageType: types.string,
+  frontImageDataSize: types.string,
+  backImageType: types.string
 })
 
 export const EvidentDocumentVerificationStoreModel = types
@@ -20,9 +29,7 @@ export const EvidentDocumentVerificationStoreModel = types
     supportedIDFormats: types.optional(types.string, ''),
     dropDownValue: types.optional(types.string, ''),
     disableBackFileInput: types.optional(types.boolean, false),
-    language: types.optional(types.string, ''),
-    supportedSelfieFormats: types.optional(types.string, ''),
-    // uploadedData: types.optional(types.map, {})
+    uploadedData: types.optional(types.map(UploadData), {})
   })
   .actions(self => {
     const actions = {
@@ -38,6 +45,19 @@ export const EvidentDocumentVerificationStoreModel = types
         await handleOpenAlert(self, param),
       closeDocumentVerificationModal: async (files: any[]) =>
         await closeDocumentVerificationModal(self, files),
+      /** Basic setters */
+      setDisableFrontFileInput (value: boolean) {
+        self.disableFrontFileInput = value
+      },
+      setDropDownValue (value: string) {
+        self.dropDownValue = value
+      },
+      setDisableBackFileInput (value: boolean) {
+        self.disableBackFileInput = value
+      },
+      setUploadedData (uploadedData: any) {
+        self.uploadedData = uploadedData
+      }
     }
     return actions
   })

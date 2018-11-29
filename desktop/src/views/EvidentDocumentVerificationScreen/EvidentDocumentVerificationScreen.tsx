@@ -35,11 +35,12 @@ export class EvidentDocumentVerificationScreen extends React.Component<DocumentV
       // @ts-ignore
       evidentDocumentVerificationStore: {
         // @ts-ignore
-        handleBackImgChange, handleFrontImgChange, handleOpenAlert, disableBackFileInput, disableFrontFileInput,
+        handleBackImgChange, handleFrontImgChange, handleOpenAlert, disableBackFileInput, disableFrontFileInput, onPaymentSelectionChange, 
         // @ts-ignore
-        handleSelfieImgChange, onPaymentSelectionChange, closeDocumentVerificationModal 
+        handleSelfieImgChange, closeDocumentVerificationModal, dropDownValue
       }
     }  = this.props
+    console.log(this.props, dropDownValue)
     return (
       <div>
         <Mutation mutation={PaymentMutation}>
@@ -57,7 +58,7 @@ export class EvidentDocumentVerificationScreen extends React.Component<DocumentV
                 language={language}
                 supportedIDFormats={supportedDocumentFormats}
                 supportedSelfieFormats={supportedSelfieFormats}
-                dropDownValue={'Drivers License'} />
+                dropDownValue={dropDownValue} />
             )}
         </Mutation>
       </div>

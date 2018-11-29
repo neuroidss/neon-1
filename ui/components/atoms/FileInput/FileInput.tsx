@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { TextInputProps } from 'react-native'
+import { color } from '../../../theme'
 
 interface InputFieldProps extends TextInputProps {
   style?: any,
@@ -13,7 +14,8 @@ interface InputFieldProps extends TextInputProps {
 const fileInputStyles = {
   fileInput: {
     backgroundColor: 'white',
-    padding: 10
+    padding: 10,
+    color: color.neon
   }
 }
 

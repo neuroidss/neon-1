@@ -1,4 +1,4 @@
-// import { getRoot } from 'mobx-state-tree'
+import { getRoot } from 'mobx-state-tree'
 // import { toAmount, toHex, toSatoshis, parseDate, parseSat } from '../../helper'
 // import { PAYMENT_TIMEOUT, PREFIX_URI } from '../../config'
 
@@ -9,8 +9,14 @@
  * @param  {string} options.invoice The input to be validated
  * @return {Promise<boolean>}       If the input is a valid invoice
  */
-export async function onPaymentSelectionChange(self, language) {
+export async function onPaymentSelectionChange(self, dropdownValue) {
   try {
+    const root = getRoot(self) as any
+    const { } = root.evidentDocumentVerificationStore
+    self.setDropDownValue(dropdownValue)
+    self.setUploadedData({...self.uploadedData, id_type: dropdownValue})
+    self.setDisableFrontFileInput(!dropdownValue)
+    self.DetdisableBackFileInput(!dropdownValue)
     return true
   } catch (err) {
     console.log(`Decoding payment request failed: ${err.message}`)
